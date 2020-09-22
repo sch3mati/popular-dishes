@@ -5,9 +5,9 @@ Full stack module for displaying popular dishes of the restaurant
 
 ## Related Projects
 
-  - https://github.com/TKOut-HRSF130/photos-carousel-service
-  - https://github.com/TKOut-HRSF130/bookings-service
-  - https://github.com/TKOut-HRSF130/reviews-service
+  - Billy: https://github.com/TKOut-HRSF130/photos-carousel-service
+  - Jonny: https://github.com/TKOut-HRSF130/bookings-service
+  - Mataeux https://github.com/TKOut-HRSF130/reviews-service
 
 ## Table of Contents
 
