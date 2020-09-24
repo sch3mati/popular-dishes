@@ -1,35 +1,17 @@
 {
-  "name": "popular-dishes-service",
-  "version": "1.0.0",
-  "description": "TKOut, popular-dishes service module",
-  "main": "index.js",
-  "scripts": {
-    "start": "nodemon ./server/index.js",
-    "build:dev": "webpack -d --watch"
+  "name": "",
+  "version": "",
+  "description": "",
+  "author": "",
+  "license": "",
+  "engines": {
+    "node": ">=6.13.0"
   },
-  "author": "Anna Kazannik",
-  "license": "ISC",
+  "scripts": {
+  },
   "dependencies": {
-    "axios": "^0.18.0",
-    "body-parser": "^1.17.2",
-    "express": "^4.15.4",
-    "jquery": "^3.2.1",
-    "mysql": "^2.14.1",
-    "react": "^16.8.5",
-    "react-dom": "^16.8.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.0",
-    "@babel/preset-env": "^7.4.2",
-    "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.5",
-    "eslint": "^7.9.0",
-    "eslint-config-airbnb": "^18.2.0",
-    "eslint-plugin-import": "^2.22.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-react": "^7.21.1",
-    "eslint-plugin-react-hooks": "^4.1.2",
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.3.0"
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
   }
 }
