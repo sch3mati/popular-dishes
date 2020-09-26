@@ -3,7 +3,7 @@
 // const https = require('https');
 // const fs = require('fs');
 const faker = require('faker');
-const db = require('./index.js');
+const { db } = require('./index.js');
 const dishes = require('./dishes.js');
 
 const dropAll = (seedFn) => {
