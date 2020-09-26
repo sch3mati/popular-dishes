@@ -1,4 +1,7 @@
 /* eslint-disable no-console */
+// https used for seeding pics, need to run only once
+// const https = require('https');
+// const fs = require('fs');
 const faker = require('faker');
 const db = require('./index.js');
 const dishes = require('./dishes.js');
@@ -32,10 +35,10 @@ const getDishes = (cb) => {
       const numOfDishes = Math.floor(Math.random() * (6 - 3) + 3);
       for (let dishCount = 0; dishCount < numOfDishes; dishCount += 1) {
         const dish = faker.random.arrayElement(dishes);
-        dishesToInsert.push([res[i].id, dish.name, dish.ingr]);
+        dishesToInsert.push([res[i].id, dish.name, dish.ingr, dish.picture]);
       }
     }
-    const sql = 'insert into dishes (restr_id, name, ingredients) values ?';
+    const sql = 'insert into dishes (restr_id, name, ingredients, picture) values ?';
     db.query(sql, [dishesToInsert], cb);
   });
 };
@@ -50,7 +53,7 @@ const getReviews = () => {
       for (let i = 0; i < res.length; i += 1) {
         const numOfReviews = Math.floor(Math.random() * (8 - 3) + 3);
         for (let r = 0; r < numOfReviews; r += 1) {
-          const user = faker.random.number(10); //FIX ACCORDING TO NUM OF USERS
+          const user = faker.random.number(50);
           const review = faker.lorem.paragraph(Math.floor(Math.random() * (5 - 3) + 3));
           const dinedOn = faker.date.recent(800);
           const stars = faker.finance.amount(3.5, 5, 1);
@@ -68,10 +71,13 @@ const getReviews = () => {
 };
 
 const genUsers = (n) => {
-  const sql = 'insert into users (name) values ?;';
+  const sql = 'insert into users (name, avatar) values ?;';
   const name = () => `${faker.name.firstName()} ${faker.name.lastName()}`;
-
-  loop(n, sql, name);
+  const params = [];
+  for (let i = 0; i < n; i += 1) {
+    params.push([name(), `https://avatarstkout.s3-us-west-1.amazonaws.com/${i}.jpg`]);
+  }
+  db.query(sql, [params]);
 };
 
 const genRestaurants = (n, cb) => {
@@ -80,27 +86,28 @@ const genRestaurants = (n, cb) => {
   loop(n, sql, name, cb);
 };
 
-// dropAll((err) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log('success drop all');
-//     genUsers(10);
-//     genRestaurants(10, () => {
-//       console.log('created restaurants');
-//       getDishes(getReviews);
+dropAll((err) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('success drop all');
+    genUsers(50);
+    genRestaurants(100, () => {
+      console.log('created restaurants');
+      getDishes(getReviews);
+    });
+  }
+});
+
+// already called
+// const genAvatars = () => {
+//   const numImages = 50;
+
+//   for (let i = 0; i < numImages; i += 1) {
+//     const file = fs.createWriteStream(`${i}.jpg`);
+//     const imgUrl = faker.image.avatar();
+//     https.get(imgUrl, (response) => {
+//       response.pipe(file);
 //     });
 //   }
-// });
-const https = require('https');
-const fs = require('fs');
-
-let numImages = 50
-
-for (let i = 0; i < numImages; i += 1) {
-  const file = fs.createWriteStream(`${i}.jpg`);
-  const imgUrl = faker.image.avatar();
-  https.get(imgUrl, function(response) {
-    response.pipe(file);
-  });
-}
+// };

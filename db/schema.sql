@@ -15,13 +15,14 @@ CREATE TABLE dishes (
   restr_id INT NOT NULL,
   name VARCHAR(50),
   ingredients VARCHAR(100),
+  picture VARCHAR(150),
   PRIMARY KEY (id)
 );
 
 CREATE TABLE users (
   id INT NOT NULL AUTO_INCREMENT,
   name VARCHAR(50),
-  avatar VARCHAR(500),
+  avatar VARCHAR(150),
   PRIMARY KEY (id)
 );
 

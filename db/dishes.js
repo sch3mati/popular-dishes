@@ -61,6 +61,7 @@ const loop = (names, ingr) => {
     const obj = {
       name: names[i],
       ingr: refactor(ingr[i]),
+      picture: `https://dishestkout.s3-us-west-1.amazonaws.com/${i + 1}.jpeg`,
     };
     result.push(obj);
   }
