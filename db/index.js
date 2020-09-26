@@ -12,3 +12,17 @@ connection.connect((err) => {
 });
 
 module.exports = connection;
+
+const getAllDishes = (restrId, cb) => {
+  const sql = `select * from dishes where restr_id = ${restrId};`;
+  connection.query(sql, (err, result) => {
+    if (err) {
+      return cb(err);
+    }
+    cb(err, result);
+  });
+};
+
+module.exports = {
+  getAllDishes,
+};
