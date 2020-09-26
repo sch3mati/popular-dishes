@@ -31,8 +31,8 @@ CREATE TABLE reviews (
   user_id INT NOT NULL,
   review VARCHAR(1000),
   dined_on DATE,
-  stars INT,
-  user_status VARCHAR(10),
+  stars FLOAT,
+  user_status BOOLEAN,
   PRIMARY KEY (id)
 );
 
