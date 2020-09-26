@@ -4,7 +4,7 @@
 /* eslint-disable prefer-template */
 const express = require('express');
 const bodyParser = require('body-parser');
-const db = require('../db/index.js');
+const { db, getAllDishes } = require('../db/index.js');
 
 const app = express();
 const port = 3001;
@@ -16,7 +16,7 @@ app.use(express.static(__dirname + '/../client/dist'));
 
 app.get('/api/dishes/restaurant/:id', (req, res) => {
   console.log(req.params.id);
-  db.getAllDishes(req.params.id, (err, data) => {
+  getAllDishes(req.params.id, (err, data) => {
     if (err) {
       res.status(500).send('request failed');
     } else {

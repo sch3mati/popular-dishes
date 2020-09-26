@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-console */
 const mysql = require('mysql');
 const dbConfig = require('./config.js');
@@ -11,8 +12,6 @@ connection.connect((err) => {
   }
 });
 
-module.exports = connection;
-
 const getAllDishes = (restrId, cb) => {
   const sql = `select * from dishes where restr_id = ${restrId};`;
   connection.query(sql, (err, result) => {
@@ -24,5 +23,6 @@ const getAllDishes = (restrId, cb) => {
 };
 
 module.exports = {
+  db: connection,
   getAllDishes,
 };
