@@ -3,8 +3,8 @@
 const mysql = require('mysql');
 const dbConfig = require('./config.js');
 
-const connection = mysql.createConnection(dbConfig);
-connection.connect((err) => {
+const dbConnection = mysql.createConnection(dbConfig);
+dbConnection.connect((err) => {
   if (err) {
     console.log(err);
   } else {
@@ -14,15 +14,40 @@ connection.connect((err) => {
 
 const getAllDishes = (restrId, cb) => {
   const sql = `select * from dishes where restr_id = ${restrId};`;
-  connection.query(sql, (err, result) => {
+  dbConnection.query(sql, (err, result) => {
     if (err) {
-      return cb(err);
+      cb(err);
+      return;
     }
-    cb(err, result);
+    cb(null, result);
+  });
+};
+
+const getDishReviews = (dishIds, cb) => {
+  const sql = `select * from reviews where dish_id in (${dishIds.join(',')});`;
+  dbConnection.query(sql, (err, result) => {
+    if (err) {
+      cb(err);
+      return;
+    }
+    cb(null, result);
+  });
+};
+
+const getUsers = (usersIds, cb) => {
+  const sql = `select * from users where id in (${usersIds.join(',')});`;
+  dbConnection.query(sql, (err, result) => {
+    if (err) {
+      cb(err);
+      return;
+    }
+    cb(null, result);
   });
 };
 
 module.exports = {
-  db: connection,
+  dbConnection,
   getAllDishes,
+  getDishReviews,
+  getUsers,
 };
