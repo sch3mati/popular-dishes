@@ -7,7 +7,7 @@
     "start": "nodemon ./server/index.js",
     "build:dev": "webpack -d --watch",
     "seed": "node db/seed.js",
-    "test": "jest --detectOpenHandles"
+    "test": "jest"
   },
   "author": "Anna Kazannik",
   "license": "ISC",
@@ -19,7 +19,8 @@
     "jquery": "^3.2.1",
     "mysql": "^2.14.1",
     "react": "^16.8.5",
-    "react-dom": "^16.8.5"
+    "react-dom": "^16.8.5",
+    "styled-components": "^5.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
