@@ -7,7 +7,7 @@
     "start": "nodemon ./server/index.js",
     "build:dev": "webpack -d --watch",
     "seed": "node db/seed.js",
-    "test": "jest"
+    "test": "jest --detectOpenHandles"
   },
   "author": "Anna Kazannik",
   "license": "ISC",
@@ -38,6 +38,8 @@
     "jest": "^26.4.2",
     "jest-environment-enzyme": "^7.1.2",
     "jest-enzyme": "^7.1.2",
+    "superagent": "^6.1.0",
+    "supertest": "^5.0.0",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0"
   }

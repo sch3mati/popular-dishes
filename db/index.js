@@ -4,13 +4,9 @@ const mysql = require('mysql');
 const dbConfig = require('./config.js');
 
 const dbConnection = mysql.createConnection(dbConfig);
-dbConnection.connect((err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log('CONNECTED TO DB!');
-  }
-});
+dbConnection.connect();
+// in order for jest test to finish running, if connection is open it has to be closed;
+// by having the following function I create the connection only when using
 
 const getAllDishes = (restrId, cb) => {
   const sql = `select * from dishes where restr_id = ${restrId};`;
@@ -46,7 +42,6 @@ const getUsers = (usersIds, cb) => {
 };
 
 module.exports = {
-  dbConnection,
   getAllDishes,
   getDishReviews,
   getUsers,
