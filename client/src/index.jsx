@@ -9,8 +9,8 @@ const Wrapper = styled.section`
   display: block;
   font-family: Halvetica, sans-serif;
   background-color: #fff;
-  margin: 0px 0px 16px;
-  padding: 0px 0px 16px;
+  width: 678px;
+  height: 220px
 `;
 
 const Title = styled.h2`
@@ -18,14 +18,17 @@ const Title = styled.h2`
   font-weight: 700;
   line-height: 32px;
   color: #2d333f;
+  margin: 0px 0px 16px;
+  padding: 0px 0px 16px;
   margin-block-start: 0.83em;
   margin-block-end: 0.83em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
+  border-bottom: 1px solid #d8d9db;
 `;
 
-const Line = styled.hr`
-  color: #d8d9db;
+const Dishes = styled.div`
+  display: flex;
 `;
 
 class App extends React.Component {
@@ -55,7 +58,7 @@ class App extends React.Component {
     return (
       <Wrapper>
         <Title>Popular dishes</Title>
-        <Line />
+        <Dishes></Dishes>
       </Wrapper>
     );
   }
