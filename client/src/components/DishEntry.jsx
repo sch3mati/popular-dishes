@@ -59,7 +59,7 @@ const DishEntry = (props) => {
   const { dish } = props;
   return (
     <div>
-      <Wrapper>
+      <Wrapper onClick={() => props.handleDishClick(dish.id)}>
         <Photo>
           <Image src={dish.picture} alt={dish.name} />
         </Photo>

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable import/extensions */
 /* eslint-disable arrow-body-style */
@@ -33,13 +34,28 @@ const Dishes = styled.div`
   padding-top: .5rem;
 `;
 
+const Overlay = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 200;
+  background-color: rgba(0,0,0,.56);
+`;
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       info: { dishes: {}, users: {} },
+      popup: false,
     };
     this.getAllDishes = this.getAllDishes.bind(this);
+    this.handleDishClick = this.handleDishClick.bind(this);
   }
 
   componentDidMount() {
@@ -56,15 +72,21 @@ class App extends React.Component {
       });
   }
 
+  handleDishClick(dishId) {
+    this.setState({ popup: !this.state.popup });
+  }
+
   render() {
     const { dishes } = this.state.info;
+    const { popup } = this.state;
     return (
       <div>
+        <div>{popup ? <Overlay><div>hello world</div></Overlay> : null}</div>
         <Wrapper>
           <Title>Popular dishes</Title>
           <Dishes>
             {Object.values(dishes).slice(0, 3).map((dish) => {
-              return (<DishEntry key={dish.id} dish={dish} />);
+              return (<DishEntry key={dish.id} dish={dish} handleDishClick={this.handleDishClick} />);
             })}
           </Dishes>
         </Wrapper>
