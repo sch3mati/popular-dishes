@@ -43,9 +43,9 @@ const DishName = styled.h1`
 
 const DishIngredients = styled.p`
   width: 168px;
-  // margin: 0;
   cursor: pointer;
   font-size: 14px;
+  font-weight: lighter;
   text-align: left;
 `;
 
@@ -64,7 +64,7 @@ const DishEntry = (props) => {
           <Image src={dish.picture} alt={dish.name} />
         </Photo>
         <DishName>{dish.name}</DishName>
-        <DishIngredients>{dish.ingredients}</DishIngredients>
+        <DishIngredients>{dish.ingredients.split(', ').slice(-4).join(', ')}</DishIngredients>
         <Reviews>{`${Math.floor(Math.random() * (50 - 15) + 15)} reviews`}</Reviews>
       </Wrapper>
     </div>
