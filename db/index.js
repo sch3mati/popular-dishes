@@ -4,7 +4,7 @@ const mysql = require('mysql');
 const dbConfig = require('./config.js');
 
 const dbConnection = mysql.createConnection(dbConfig);
-dbConnection.connect();
+// dbConnection.connect();
 // in order for jest test to finish running, if connection is open it has to be closed;
 // by having the following function I create the connection only when using
 
