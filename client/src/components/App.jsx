@@ -6,6 +6,7 @@ import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import DishEntry from './DishEntry.jsx';
+import Popup from './Popup.jsx';
 
 const Wrapper = styled.section`
   display: block;
@@ -53,9 +54,12 @@ class App extends React.Component {
     this.state = {
       info: { dishes: {}, users: {} },
       popup: false,
+      popupDish: null,
     };
     this.getAllDishes = this.getAllDishes.bind(this);
     this.handleDishClick = this.handleDishClick.bind(this);
+    this.handlePopupClose = this.handlePopupClose.bind(this);
+    this.handlePopupContent = this.handlePopupContent.bind(this);
   }
 
   componentDidMount() {
@@ -73,7 +77,22 @@ class App extends React.Component {
   }
 
   handleDishClick(dishId) {
-    this.setState({ popup: !this.state.popup });
+    this.setState((prevState) => ({
+      popup: !prevState.popup,
+      popupDish: dishId,
+    }));
+  }
+
+  handlePopupClose() {
+    this.setState((prevState) => ({
+      popup: !prevState.popup,
+    }));
+  }
+
+  handlePopupContent(dishId) {
+    this.setState(() => ({
+      popupDish: dishId,
+    }));
   }
 
   render() {
@@ -81,7 +100,7 @@ class App extends React.Component {
     const { popup } = this.state;
     return (
       <div>
-        <div>{popup ? <Overlay><div>hello world</div></Overlay> : null}</div>
+        <div>{popup ? <Overlay><Popup info={this.state.info} dishToRender={this.state.popupDish} closePopup={this.handlePopupClose} onContentChange={this.handlePopupContent} /></Overlay> : null}</div>
         <Wrapper>
           <Title>Popular dishes</Title>
           <Dishes>

@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import styled from 'styled-components';
 
@@ -18,6 +17,10 @@ const Wrapper = styled.div`
   justify-content: space-between;
   margin-right: 6px;
   cursor: pointer;
+  &: hover {
+    box-shadow: 0 2px 4px rgba(45,51,63,.2);
+    transform: translate(0,-6px);
+  }
 `;
 
 const Photo = styled.div`
@@ -55,20 +58,17 @@ const Reviews = styled.p`
   font-size: 14px;
 `;
 
-const DishEntry = (props) => {
-  const { dish } = props;
-  return (
-    <div>
-      <Wrapper onClick={() => props.handleDishClick(dish.id)}>
-        <Photo>
-          <Image src={dish.picture} alt={dish.name} />
-        </Photo>
-        <DishName>{dish.name}</DishName>
-        <DishIngredients>{dish.ingredients.split(', ').slice(-4).join(', ')}</DishIngredients>
-        <Reviews>{`${Math.floor(Math.random() * (50 - 15) + 15)} reviews`}</Reviews>
-      </Wrapper>
-    </div>
-  );
-};
+const DishEntry = ({ dish, handleDishClick }) => (
+  <div>
+    <Wrapper onClick={() => handleDishClick(dish.id)}>
+      <Photo>
+        <Image src={dish.picture} alt={dish.name} />
+      </Photo>
+      <DishName>{dish.name}</DishName>
+      <DishIngredients>{dish.ingredients.split(', ').slice(-4).join(', ')}</DishIngredients>
+      <Reviews>{`${Object.keys(dish.reviews).length} reviews`}</Reviews>
+    </Wrapper>
+  </div>
+);
 
 export default DishEntry;
