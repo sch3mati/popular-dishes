@@ -1,9 +1,12 @@
+/* eslint-disable import/extensions */
+/* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/no-unused-state */
 /* eslint-disable arrow-body-style */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import styled from 'styled-components';
+import DishEntry from './DishEntry.jsx';
 
 const Wrapper = styled.section`
   display: block;
@@ -29,13 +32,14 @@ const Title = styled.h2`
 
 const Dishes = styled.div`
   display: flex;
+  padding-top: .5rem;
 `;
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      info: {},
+      info: { dishes: {}, users: {} },
     };
     this.getAllDishes = this.getAllDishes.bind(this);
   }
@@ -55,13 +59,22 @@ class App extends React.Component {
   }
 
   render() {
+    const { dishes } = this.state.info;
     return (
-      <Wrapper>
-        <Title>Popular dishes</Title>
-        <Dishes></Dishes>
-      </Wrapper>
+      <div>
+        <Wrapper>
+          <Title>Popular dishes</Title>
+          <Dishes>
+            {Object.values(dishes).slice(0, 3).map((dish) => {
+              return (<DishEntry key={dish.id} dish={dish} />);
+            })}
+          </Dishes>
+        </Wrapper>
+      </div>
     );
   }
 }
+
+export default App;
 
 ReactDOM.render(<App />, document.getElementById('popular-dishes-section'));
