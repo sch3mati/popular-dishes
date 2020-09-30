@@ -7,7 +7,7 @@
     "start": "nodemon ./server/index.js",
     "build:dev": "webpack -d --watch",
     "seed": "node db/seed.js",
-    "test": "jest --verbose --detectOpenHandles",
+    "test": "jest --verbose",
     "test:coverage": "jest --verbose --coverage"
   },
   "author": "Anna Kazannik",
