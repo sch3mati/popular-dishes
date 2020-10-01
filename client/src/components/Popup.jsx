@@ -1,6 +1,9 @@
+/* eslint-disable import/extensions */
+/* eslint-disable max-len */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import styled from 'styled-components';
+import Review from './Review.jsx';
 
 const Content = styled.div`
   max-width: 480px;
@@ -26,6 +29,7 @@ const CloseBtn = styled.button`
   cursor: pointer;
   border: none;
   z-index: 1;
+  outline: none;
 `;
 
 const DishName = styled.h2`
@@ -51,6 +55,7 @@ const Ingredients = styled.p`
 
 const Reviews = styled.div`
   width: 100%;
+  height: 300px;
   margin-bottom: 1rem;
   margin-top: 2rem;
   overflow-y: scroll;
@@ -101,12 +106,16 @@ const DishBtn = styled.button`
   }
 `;
 
-const Popup = ({ info, closePopup, dishToRender, onContentChange }) => {
+const Popup = ({
+  info, closePopup, dishToRender, onContentChange,
+}) => {
   const dishName = (id) => info.dishes[`${id}`].name;
   const UcFirstLetter = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+  const user = (id) => info.users[`${id}`];
   const reviewsNum = Object.keys(info.dishes[`${dishToRender}`].reviews).length;
   const ingredients = info.dishes[`${dishToRender}`].ingredients.split(', ').slice(-4).join(', ');
   const otherDishesIds = Object.keys(info.dishes).filter((id) => id !== `${dishToRender}`);
+  const reviews = Object.values(info.dishes[`${dishToRender}`].reviews);
   return (
     <div>
       <Content>
@@ -115,7 +124,9 @@ const Popup = ({ info, closePopup, dishToRender, onContentChange }) => {
           <DishName>{dishName(dishToRender)}</DishName>
           <Mentions>{`${reviewsNum} reviews mention this dish`}</Mentions>
           <Ingredients>{ingredients}</Ingredients>
-          <Reviews></Reviews>
+          <Reviews>
+            {reviews.map((review) => <Review key={review.id} review={review} user={user(review.user_id)} />)}
+          </Reviews>
           <OtherDishes>
             <OtherDishesHeader>Other Popular Dishes</OtherDishesHeader>
             {otherDishesIds.map((id) => <DishBtn onClick={() => onContentChange(id)} key={id}>{UcFirstLetter(dishName(id).split(' ').slice(-1).join(''))}</DishBtn>)}
