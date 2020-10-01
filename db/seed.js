@@ -53,7 +53,7 @@ const getReviews = () => {
       for (let i = 0; i < res.length; i += 1) {
         const numOfReviews = Math.floor(Math.random() * (8 - 3) + 3);
         for (let r = 0; r < numOfReviews; r += 1) {
-          const user = faker.random.number(50);
+          const user = faker.random.number({ min: 1, max: 50 });
           const review = faker.lorem.paragraph(Math.floor(Math.random() * (5 - 3) + 3));
           const dinedOn = faker.date.recent(800);
           const stars = faker.finance.amount(3.5, 5, 1);

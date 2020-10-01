@@ -64,7 +64,6 @@ const Text = styled.div`
   text-overflow: ellipsis;
 `;
 
-
 const Review = ({ review, user }) => {
   const dateFormatter = (date) => {
     const e = new Date(date);

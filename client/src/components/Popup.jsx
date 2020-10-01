@@ -111,7 +111,12 @@ const Popup = ({
 }) => {
   const dishName = (id) => info.dishes[`${id}`].name;
   const UcFirstLetter = (str) => str.charAt(0).toUpperCase() + str.slice(1);
-  const user = (id) => info.users[`${id}`];
+  const user = (id) => {
+    if(info.users[`${id}`] === undefined) {
+      console.log(id, info)
+    }
+    return info.users[`${id}`]
+  };
   const reviewsNum = Object.keys(info.dishes[`${dishToRender}`].reviews).length;
   const ingredients = info.dishes[`${dishToRender}`].ingredients.split(', ').slice(-4).join(', ');
   const otherDishesIds = Object.keys(info.dishes).filter((id) => id !== `${dishToRender}`);
