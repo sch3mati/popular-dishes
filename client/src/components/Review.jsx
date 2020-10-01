@@ -74,7 +74,7 @@ const Review = ({ review, user }) => {
       <Wrapper>
         <ReviewHeader>
           <Thumbnail>
-            <div>{user !== undefined ? <Image src={user.avatar} alt={user.name} /> : null}</div>
+            <Image src={user.avatar} alt={user.name} />
           </Thumbnail>
           <ReviewInfo>
             <UserName>
