@@ -42,7 +42,7 @@ const DishesOutter = styled.nav`
   position: relative;
 `;
 
-const Prev = styled.button`
+const Button = styled.button`
   text-align: center;
   outline: none;
   width: 40px;
@@ -52,22 +52,14 @@ const Prev = styled.button`
   background: #fff;
   position: absolute;
   top: 50%;
-  left: -23px;
   transform: translateY(-50%);
 `;
 
-const Next = styled.button`
-  text-align: center;
-  outline: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid #d8d9db;
-  background: #fff;
-  position: absolute;
-  top: 50%;
+const PrevBtn = styled(Button)`
+  left: -23px;
+`;
+const NextBtn = styled(Button)`
   right: -20px;
-  transform: translateY(-50%);
 `;
 
 const Overlay = styled.div`
@@ -145,8 +137,8 @@ class App extends React.Component {
               })}
             </DishesInner>
             <div className="nav">
-              <Prev>◀</Prev>
-              <Next>▶</Next>
+              <PrevBtn>◀</PrevBtn>
+              <NextBtn>▶</NextBtn>
             </div>
           </DishesOutter>
         </Wrapper>
