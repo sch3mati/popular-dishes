@@ -13,7 +13,8 @@ const Wrapper = styled.section`
   font-family: Halvetica, sans-serif;
   background-color: #fff;
   width: 678px;
-  height: 220px
+  height: 220px;
+  margin-left: 20px;
 `;
 
 const Title = styled.h2`
@@ -30,9 +31,43 @@ const Title = styled.h2`
   border-bottom: 1px solid #d8d9db;
 `;
 
-const Dishes = styled.div`
+const DishesInner = styled.div`
   display: flex;
   padding-top: .5rem;
+  width: 678px;
+  overflow: hidden;
+`;
+
+const DishesOutter = styled.nav`
+  position: relative;
+`;
+
+const Prev = styled.button`
+  text-align: center;
+  outline: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #d8d9db;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  left: -23px;
+  transform: translateY(-50%);
+`;
+
+const Next = styled.button`
+  text-align: center;
+  outline: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #d8d9db;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  transform: translateY(-50%);
 `;
 
 const Overlay = styled.div`
@@ -103,11 +138,17 @@ class App extends React.Component {
         <div>{popup ? <Overlay><Popup info={this.state.info} dishToRender={this.state.popupDish} closePopup={this.handlePopupClose} onContentChange={this.handlePopupContent} /></Overlay> : null}</div>
         <Wrapper>
           <Title>Popular dishes</Title>
-          <Dishes>
-            {Object.values(dishes).slice(0, 3).map((dish) => {
-              return (<DishEntry key={dish.id} dish={dish} handleDishClick={this.handleDishClick} />);
-            })}
-          </Dishes>
+          <DishesOutter>
+            <DishesInner>
+              {Object.values(dishes).map((dish) => {
+                return (<DishEntry key={dish.id} dish={dish} handleDishClick={this.handleDishClick} />);
+              })}
+            </DishesInner>
+            <div className="nav">
+              <Prev>◀</Prev>
+              <Next>▶</Next>
+            </div>
+          </DishesOutter>
         </Wrapper>
       </div>
     );

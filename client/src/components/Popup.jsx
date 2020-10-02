@@ -81,10 +81,6 @@ const OtherDishesHeader = styled.h3`
   font-weight: bold;
 `;
 
-// const OtherDishesBtns = styled.div`
-//   display: flex;
-// `;
-
 const DishBtn = styled.button`
   margin: 2px calc(.5rem + 1px) 1px 1px;
   border-radius: 4px;
@@ -112,7 +108,7 @@ const Popup = ({
   info, closePopup, dishToRender, onContentChange,
 }) => {
   const node = useRef();
-  const handleClick = (e) => {
+  const handleOutsideClick = (e) => {
     if (node.current.contains(e.target)) {
       return;
     }
@@ -127,14 +123,14 @@ const Popup = ({
   const reviews = Object.values(info.dishes[`${dishToRender}`].reviews);
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClick);
+    document.addEventListener('mousedown', handleOutsideClick);
     return () => {
-      document.removeEventListener('mousedown', handleClick);
+      document.removeEventListener('mousedown', handleOutsideClick);
     };
   }, []);
 
   return (
-    <div ref={node} onClick={handleClick}>
+    <div ref={node} onClick={handleOutsideClick}>
       <Content>
         <CloseBtn onClick={closePopup}>╳</CloseBtn>
         <div>
