@@ -7,6 +7,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import DishEntry from './DishEntry.jsx';
 import Popup from './Popup.jsx';
+import icon from '../icons.jsx';
 
 const Wrapper = styled.section`
   display: block;
@@ -31,16 +32,19 @@ const Title = styled.h2`
   border-bottom: 1px solid #d8d9db;
 `;
 
+const DishesContainer = styled.nav`
+  position: relative;
+`;
+
+const DishesOutter = styled.div`
+  overflow: hidden;
+`;
+
 const DishesInner = styled.div`
   display: flex;
   padding-top: .5rem;
   width: 678px;
-  overflow: hidden;
   transition: .5s;
-`;
-
-const DishesOutter = styled.nav`
-  position: relative;
 `;
 
 const Button = styled.button`
@@ -48,19 +52,23 @@ const Button = styled.button`
   outline: none;
   width: 40px;
   height: 40px;
+  padding-top: 2px;
   border-radius: 50%;
   border: 1px solid #d8d9db;
   background: #fff;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  cursor: pointer;
 `;
 
 const PrevBtn = styled(Button)`
   left: -23px;
+  padding-right: 7px;
 `;
 const NextBtn = styled(Button)`
   right: -20px;
+  padding-left: 7px;
 `;
 
 const Overlay = styled.div`
@@ -126,17 +134,16 @@ class App extends React.Component {
     }));
   }
 
-  goLeft(num) {
-    // this.setState((prevState) => ({
-    //   x: prevState.x + 50,
-    // }));
-    console.log(this.state.x)
-    this.state.x === 0 ? this.setState(() => ({ x: -50 * (num - 1) })) : this.setState((prevState) => ({ x: prevState.x + 50 }));
+  goLeft() {
+    this.setState((prevState) => ({
+      x: prevState.x + 678,
+    }));
   }
 
-  goRight(num) {
-    console.log(this.state.x)
-    this.state.x === -50 * (num - 1) ? this.setState(() => ({ x: 0 })) : this.setState((prevState) => ({ x: prevState.x - 50 }));
+  goRight() {
+    this.setState((prevState) => ({
+      x: prevState.x - 678,
+    }));
   }
 
   render() {
@@ -149,17 +156,19 @@ class App extends React.Component {
         <div>{popup ? <Overlay><Popup info={this.state.info} dishToRender={this.state.popupDish} closePopup={this.handlePopupClose} onContentChange={this.handlePopupContent} /></Overlay> : null}</div>
         <Wrapper>
           <Title>Popular dishes</Title>
-          <DishesOutter>
-            <DishesInner className="dishes" style={{ transform: `translateX(${x}%)` }}>
-              {Object.values(dishes).map((dish) => {
-                return (<DishEntry key={dish.id} dish={dish} handleDishClick={this.handleDishClick} />);
-              })}
-            </DishesInner>
+          <DishesContainer>
+            <DishesOutter>
+              <DishesInner className="dishes" style={{ transform: `translateX(${x}px)` }}>
+                {Object.values(dishes).map((dish) => {
+                  return (<DishEntry key={dish.id} dish={dish} handleDishClick={this.handleDishClick} />);
+                })}
+              </DishesInner>
+            </DishesOutter>
             <div className="nav">
-              <PrevBtn onClick={() => this.goLeft(numOfDishes)}>◀</PrevBtn>
-              <NextBtn onClick={() => this.goRight(numOfDishes)}>▶</NextBtn>
+              {x !== 0 ? <PrevBtn onClick={() => this.goLeft(numOfDishes)}>{icon.leftArrow}</PrevBtn> : null}
+              {Math.abs(x) < numOfDishes * 226 - 678 ? <NextBtn onClick={() => this.goRight(numOfDishes)}>{icon.rightArrow}</NextBtn> : null}
             </div>
-          </DishesOutter>
+          </DishesContainer>
         </Wrapper>
       </div>
     );
