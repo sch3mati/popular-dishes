@@ -32,7 +32,7 @@ const getDishes = (cb) => {
     console.log(`Creating dishes for ${res.length} restaurants`);
     const dishesToInsert = [];
     for (let i = 0; i < res.length; i += 1) {
-      const numOfDishes = Math.floor(Math.random() * (6 - 3) + 3);
+      const numOfDishes = Math.floor(Math.random() * (9 - 5) + 5);
       for (let dishCount = 0; dishCount < numOfDishes; dishCount += 1) {
         const dish = faker.random.arrayElement(dishes);
         dishesToInsert.push([res[i].id, dish.name, dish.ingr, dish.picture]);
@@ -51,7 +51,7 @@ const getReviews = () => {
     } else {
       console.log(`Inserting reviews for ${res.length} dishes`);
       for (let i = 0; i < res.length; i += 1) {
-        const numOfReviews = Math.floor(Math.random() * (8 - 3) + 3);
+        const numOfReviews = Math.floor(Math.random() * (13 - 5) + 5);
         for (let r = 0; r < numOfReviews; r += 1) {
           const user = faker.random.number({ min: 1, max: 50 });
           const review = faker.lorem.paragraph(Math.floor(Math.random() * (5 - 3) + 3));
