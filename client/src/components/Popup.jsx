@@ -9,7 +9,7 @@ import Review from './Review.jsx';
 import icon from '../icons.jsx';
 
 const Content = styled.div`
-  max-width: 480px;
+  max-width: 520px;
   max-height: 700px;
   height: 70%;
   position: relative;
