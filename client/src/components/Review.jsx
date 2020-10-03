@@ -1,6 +1,6 @@
 /* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Stars from './Stars.jsx';
 
@@ -64,14 +64,31 @@ const Rating = styled.div`
   margin-top: .25rem;
 `;
 
-const Text = styled.div`
-  line-height: 24px;
-  max-height: 72px;
+const TextContainer = styled.div`
+  max-height: ${(props) => (!props.expand ? '69px' : null)};
   overflow: hidden;
   text-overflow: ellipsis;
 `;
 
+const Text = styled.p`
+  margin-bottom: calc(.25rem + .5rem);
+  line-height: calc(1rem + .5rem);
+`;
+
+const ReadMoreLink = styled.a`
+  color: #da3743;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  cursor: pointer;
+  &: hover {
+    text-decoration: underline;
+  }
+`;
+
 const Review = ({ review, user }) => {
+  const [readMore, setReadMore] = useState(false);
+  const linkName = readMore ? '- Read less' : '+ Read more';
   const dateFormatter = (date) => {
     const e = new Date(date);
     return e.toString().split(' ').slice(1, 4).join(' ');
@@ -94,7 +111,14 @@ const Review = ({ review, user }) => {
             </Rating>
           </ReviewInfo>
         </ReviewHeader>
-        <Text>{review.review}</Text>
+        <div>
+          <TextContainer expand={readMore}>
+            <Text className="text">{review.review}</Text>
+          </TextContainer>
+          <ReadMoreLink onClick={() => setReadMore(!readMore)}>
+            <span>{linkName}</span>
+          </ReadMoreLink>
+        </div>
       </Wrapper>
     </div>
   );
