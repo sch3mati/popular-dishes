@@ -68,7 +68,7 @@ const Ingredients = styled.p`
 
 const Reviews = styled.div`
   width: 100%;
-  height: 300px;
+  height: 420px;
   margin-bottom: 1rem;
   margin-top: 2rem;
   overflow-y: scroll;
@@ -106,7 +106,7 @@ const DishBtn = styled.button`
   text-rendering: auto;
   display: inline-block;
   align-items: flex-start;
-  cursor: default;
+  cursor: pointer;
   box-sizing: border-box;
   &:hover {
     margin: 0 .5rem 0 0;
