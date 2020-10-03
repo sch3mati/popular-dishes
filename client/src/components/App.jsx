@@ -13,7 +13,8 @@ const Wrapper = styled.section`
   font-family: Halvetica, sans-serif;
   background-color: #fff;
   width: 678px;
-  height: 220px
+  height: 220px;
+  margin-left: 20px;
 `;
 
 const Title = styled.h2`
@@ -30,9 +31,36 @@ const Title = styled.h2`
   border-bottom: 1px solid #d8d9db;
 `;
 
-const Dishes = styled.div`
+const DishesInner = styled.div`
   display: flex;
   padding-top: .5rem;
+  width: 678px;
+  overflow: hidden;
+  transition: .5s;
+`;
+
+const DishesOutter = styled.nav`
+  position: relative;
+`;
+
+const Button = styled.button`
+  text-align: center;
+  outline: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #d8d9db;
+  background: #fff;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+`;
+
+const PrevBtn = styled(Button)`
+  left: -23px;
+`;
+const NextBtn = styled(Button)`
+  right: -20px;
 `;
 
 const Overlay = styled.div`
@@ -55,11 +83,14 @@ class App extends React.Component {
       info: { dishes: {}, users: {} },
       popup: false,
       popupDish: null,
+      x: 0,
     };
     this.getAllDishes = this.getAllDishes.bind(this);
     this.handleDishClick = this.handleDishClick.bind(this);
     this.handlePopupClose = this.handlePopupClose.bind(this);
     this.handlePopupContent = this.handlePopupContent.bind(this);
+    this.goLeft = this.goLeft.bind(this);
+    this.goRight = this.goRight.bind(this);
   }
 
   componentDidMount() {
@@ -95,19 +126,40 @@ class App extends React.Component {
     }));
   }
 
+  goLeft(num) {
+    // this.setState((prevState) => ({
+    //   x: prevState.x + 50,
+    // }));
+    console.log(this.state.x)
+    this.state.x === 0 ? this.setState(() => ({ x: -50 * (num - 1) })) : this.setState((prevState) => ({ x: prevState.x + 50 }));
+  }
+
+  goRight(num) {
+    console.log(this.state.x)
+    this.state.x === -50 * (num - 1) ? this.setState(() => ({ x: 0 })) : this.setState((prevState) => ({ x: prevState.x - 50 }));
+  }
+
   render() {
     const { dishes } = this.state.info;
     const { popup } = this.state;
+    const { x } = this.state;
+    const numOfDishes = Object.keys(dishes).length;
     return (
       <div>
         <div>{popup ? <Overlay><Popup info={this.state.info} dishToRender={this.state.popupDish} closePopup={this.handlePopupClose} onContentChange={this.handlePopupContent} /></Overlay> : null}</div>
         <Wrapper>
           <Title>Popular dishes</Title>
-          <Dishes>
-            {Object.values(dishes).slice(0, 3).map((dish) => {
-              return (<DishEntry key={dish.id} dish={dish} handleDishClick={this.handleDishClick} />);
-            })}
-          </Dishes>
+          <DishesOutter>
+            <DishesInner className="dishes" style={{ transform: `translateX(${x}%)` }}>
+              {Object.values(dishes).map((dish) => {
+                return (<DishEntry key={dish.id} dish={dish} handleDishClick={this.handleDishClick} />);
+              })}
+            </DishesInner>
+            <div className="nav">
+              <PrevBtn onClick={() => this.goLeft(numOfDishes)}>◀</PrevBtn>
+              <NextBtn onClick={() => this.goRight(numOfDishes)}>▶</NextBtn>
+            </div>
+          </DishesOutter>
         </Wrapper>
       </div>
     );

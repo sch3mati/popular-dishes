@@ -1,6 +1,8 @@
+/* eslint-disable import/extensions */
 /* eslint-disable react/prop-types */
 import React from 'react';
 import styled from 'styled-components';
+import Stars from './Stars.jsx';
 
 const Wrapper = styled.div`
   border-bottom: 1px solid #d8d9db;
@@ -57,6 +59,11 @@ const DateComponent = styled.div`
   font-weight: 500;
 `;
 
+const Rating = styled.div`
+  display: flex;
+  margin-top: .25rem;
+`;
+
 const Text = styled.div`
   line-height: 24px;
   max-height: 72px;
@@ -81,7 +88,10 @@ const Review = ({ review, user }) => {
               <div>{user.name}</div>
               <div>{review.user_status ? <Status>vip</Status> : null}</div>
             </UserName>
-            <DateComponent>{`Dined on ${dateFormatter(review.dined_on)}`}</DateComponent>
+            <Rating>
+              <Stars rating={review.stars} />
+              <DateComponent>{`${review.stars} · Dined on ${dateFormatter(review.dined_on)}`}</DateComponent>
+            </Rating>
           </ReviewInfo>
         </ReviewHeader>
         <Text>{review.review}</Text>

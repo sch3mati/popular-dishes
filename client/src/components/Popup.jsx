@@ -1,7 +1,9 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable import/extensions */
 /* eslint-disable max-len */
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Review from './Review.jsx';
 
@@ -79,10 +81,6 @@ const OtherDishesHeader = styled.h3`
   font-weight: bold;
 `;
 
-// const OtherDishesBtns = styled.div`
-//   display: flex;
-// `;
-
 const DishBtn = styled.button`
   margin: 2px calc(.5rem + 1px) 1px 1px;
   border-radius: 4px;
@@ -109,6 +107,13 @@ const DishBtn = styled.button`
 const Popup = ({
   info, closePopup, dishToRender, onContentChange,
 }) => {
+  const node = useRef();
+  const handleOutsideClick = (e) => {
+    if (node.current.contains(e.target)) {
+      return;
+    }
+    closePopup();
+  };
   const dishName = (id) => info.dishes[`${id}`].name;
   const UcFirstLetter = (str) => str.charAt(0).toUpperCase() + str.slice(1);
   const user = (id) => info.users[`${id}`];
@@ -116,8 +121,16 @@ const Popup = ({
   const ingredients = info.dishes[`${dishToRender}`].ingredients.split(', ').slice(-4).join(', ');
   const otherDishesIds = Object.keys(info.dishes).filter((id) => id !== `${dishToRender}`);
   const reviews = Object.values(info.dishes[`${dishToRender}`].reviews);
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => {
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, []);
+
   return (
-    <div>
+    <div ref={node} onClick={handleOutsideClick}>
       <Content>
         <CloseBtn onClick={closePopup}>╳</CloseBtn>
         <div>
