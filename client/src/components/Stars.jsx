@@ -29,8 +29,8 @@ const FullStarInner = styled.div`
 const Stars = ({ rating }) => {
   const emptyStars = [];
   const fullStar = [];
-  const svgStar = (color) => (
-    <Star width="16px" height="16px" viewBox="0 0 16 16" version="1.1">
+  const svgStar = (color, idx) => (
+    <Star key={idx} width="16px" height="16px" viewBox="0 0 16 16" version="1.1">
       <title>Star</title>
       <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
         <g id="star-empty" fillRule="nonzero" fill={color}>
@@ -41,9 +41,9 @@ const Stars = ({ rating }) => {
   );
   for (let i = 0; i < 5; i += 1) {
     let klass = '#E1E1E1';
-    emptyStars.push(svgStar(klass));
+    emptyStars.push(svgStar(klass, i));
     klass = '#DA3743';
-    fullStar.push(svgStar(klass));
+    fullStar.push(svgStar(klass, i));
   }
   return (
     <Rating className="rating">

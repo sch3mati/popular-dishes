@@ -6,6 +6,7 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Review from './Review.jsx';
+import icon from '../icons.jsx';
 
 const Content = styled.div`
   max-width: 480px;
@@ -34,6 +35,12 @@ const CloseBtn = styled.button`
   outline: none;
 `;
 
+const BadgeIcon = styled.div`
+  height: calc(1rem + .5rem);
+  width: calc(1rem + .5rem);
+  margin-right: .25rem;
+`;
+
 const DishName = styled.h2`
   display: block;
   font-size: 24px;
@@ -46,6 +53,10 @@ const DishName = styled.h2`
 `;
 
 const Mentions = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: calc(-1*.25rem);
+  margin-bottom: .5rem;
   font-size: 14px;
   font-weight: 500;
 `;
@@ -135,7 +146,7 @@ const Popup = ({
         <CloseBtn onClick={closePopup}>╳</CloseBtn>
         <div>
           <DishName>{dishName(dishToRender)}</DishName>
-          <Mentions>{`${reviewsNum} reviews mention this dish`}</Mentions>
+          <Mentions><BadgeIcon>{icon.badge}</BadgeIcon>{`${reviewsNum} reviews mention this dish`}</Mentions>
           <Ingredients>{ingredients}</Ingredients>
           <Reviews>
             {reviews.map((review) => <Review key={review.id} review={review} user={user(review.user_id)} />)}
