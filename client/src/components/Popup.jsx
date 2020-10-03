@@ -146,7 +146,10 @@ const Popup = ({
         <CloseBtn onClick={closePopup}>╳</CloseBtn>
         <div>
           <DishName>{dishName(dishToRender)}</DishName>
-          <Mentions><BadgeIcon>{icon.badge}</BadgeIcon>{`${reviewsNum} reviews mention this dish`}</Mentions>
+          <Mentions>
+            <BadgeIcon>{icon.badge}</BadgeIcon>
+            {`${reviewsNum} reviews mention this dish`}
+          </Mentions>
           <Ingredients>{ingredients}</Ingredients>
           <Reviews>
             {reviews.map((review) => <Review key={review.id} review={review} user={user(review.user_id)} />)}
