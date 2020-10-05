@@ -94,33 +94,31 @@ const Review = ({ review, user }) => {
     return e.toString().split(' ').slice(1, 4).join(' ');
   };
   return (
-    <div>
-      <Wrapper>
-        <ReviewHeader>
-          <Thumbnail>
-            <Image src={user.avatar} alt={user.name} />
-          </Thumbnail>
-          <ReviewInfo>
-            <UserName>
-              <div>{user.name}</div>
-              <div>{review.user_status ? <Status>vip</Status> : null}</div>
-            </UserName>
-            <Rating>
-              <Stars rating={review.stars} />
-              <DateComponent>{`${review.stars} · Dined on ${dateFormatter(review.dined_on)}`}</DateComponent>
-            </Rating>
-          </ReviewInfo>
-        </ReviewHeader>
-        <div>
-          <TextContainer expand={readMore}>
-            <Text className="text">{review.review}</Text>
-          </TextContainer>
-          <ReadMoreLink onClick={() => setReadMore(!readMore)}>
-            <span>{linkName}</span>
-          </ReadMoreLink>
-        </div>
-      </Wrapper>
-    </div>
+    <Wrapper>
+      <ReviewHeader>
+        <Thumbnail>
+          <Image src={user.avatar} alt={user.name} />
+        </Thumbnail>
+        <ReviewInfo>
+          <UserName>
+            <div>{user.name}</div>
+            <div>{review.user_status ? <Status>vip</Status> : null}</div>
+          </UserName>
+          <Rating>
+            <Stars rating={review.stars} />
+            <DateComponent>{`${review.stars} · Dined on ${dateFormatter(review.dined_on)}`}</DateComponent>
+          </Rating>
+        </ReviewInfo>
+      </ReviewHeader>
+      <div>
+        <TextContainer expand={readMore}>
+          <Text className="text">{review.review}</Text>
+        </TextContainer>
+        <ReadMoreLink onClick={() => setReadMore(!readMore)}>
+          <span>{linkName}</span>
+        </ReadMoreLink>
+      </div>
+    </Wrapper>
   );
 };
 
