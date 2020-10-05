@@ -165,8 +165,8 @@ class App extends React.Component {
               </DishesInner>
             </DishesOutter>
             <div className="nav">
-              {x !== 0 ? <PrevBtn onClick={() => this.goLeft(numOfDishes)}>{icon.leftArrow}</PrevBtn> : null}
-              {Math.abs(x) < numOfDishes * 226 - 678 ? <NextBtn onClick={() => this.goRight(numOfDishes)}>{icon.rightArrow}</NextBtn> : null}
+              {x !== 0 ? <PrevBtn onClick={this.goLeft}>{icon.leftArrow}</PrevBtn> : null}
+              {Math.abs(x) < numOfDishes * 226 - 678 ? <NextBtn onClick={this.goRight}>{icon.rightArrow}</NextBtn> : null}
             </div>
           </DishesContainer>
         </Wrapper>
