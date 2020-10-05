@@ -9,7 +9,6 @@ const Wrapper = styled.div`
   border-radius: 4px;
   border: 1px solid #d8d9db;
   background-color: #fff;
-  padding: 14px;
   display: flex;
   flex-direction: column;
   white-space: normal;
@@ -25,19 +24,25 @@ const Wrapper = styled.div`
 
 const Photo = styled.div`
   width: 100%;
-  height: 120px;
+  height: 140px;
   display: flex;
   justify-content: center;
 `;
 
+const DishInfoContainer = styled.div`
+  padding: 0 14px 14px 14px;
+  height: 160px;
+`;
+
 const Image = styled.img`
-  max-width: 100%;
-  max-height: 100%;
+  object-fit: cover;
+  width: 100%;
 `;
 
 const DishName = styled.h1`
   width: 168px;
-  height: 30px;
+  height: 45px;
+  padding-top: 3px;
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
@@ -46,6 +51,7 @@ const DishName = styled.h1`
 
 const DishIngredients = styled.p`
   width: 168px;
+  height: 48px;
   cursor: pointer;
   font-size: 14px;
   font-weight: lighter;
@@ -64,9 +70,11 @@ const DishEntry = ({ dish, handleDishClick }) => (
       <Photo>
         <Image src={dish.picture} alt={dish.name} />
       </Photo>
-      <DishName>{dish.name}</DishName>
-      <DishIngredients>{dish.ingredients.split(', ').slice(-4).join(', ')}</DishIngredients>
-      <Reviews>{`${Object.keys(dish.reviews).length} reviews`}</Reviews>
+      <DishInfoContainer>
+        <DishName>{dish.name}</DishName>
+        <DishIngredients>{dish.ingredients.split(', ').slice(-4).join(', ')}</DishIngredients>
+        <Reviews>{`${Object.keys(dish.reviews).length} reviews`}</Reviews>
+      </DishInfoContainer>
     </Wrapper>
   </div>
 );
