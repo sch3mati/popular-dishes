@@ -50,6 +50,7 @@ const DishName = styled.h2`
   margin-inline-end: 0px;
   font-weight: bold;
   margin-bottom: .5rem;
+  margin-top: 5px
 `;
 
 const Mentions = styled.div`
@@ -77,7 +78,7 @@ const Reviews = styled.div`
 
 const OtherDishes = styled.div`
   width: 100%;
-  padding-top: 1rem;
+  padding-top: 4px;
 `;
 
 const OtherDishesHeader = styled.h3`

@@ -1,3 +1,5 @@
+/* eslint-disable vars-on-top */
+/* eslint-disable no-var */
 /* eslint-disable no-console */
 // https used for seeding pics, need to run only once
 // const https = require('https');
@@ -53,25 +55,32 @@ const getReviews = () => {
   db.query(getDish, (err, res) => {
     if (err) {
       console.log(err);
-    } else {
-      console.log(`Inserting reviews for ${res.length} dishes`);
-      for (let i = 0; i < res.length; i += 1) {
-        const numOfReviews = Math.floor(Math.random() * (13 - 5) + 5);
-        for (let r = 0; r < numOfReviews; r += 1) {
-          const user = faker.random.number({ min: 1, max: 50 });
-          const review = faker.lorem.paragraph(Math.floor(Math.random() * (6 - 4) + 4));
-          const dinedOn = faker.date.recent(800);
-          const stars = faker.finance.amount(3.5, 5, 1);
-          const userStatus = faker.random.boolean();
-          const sql = 'insert into reviews (dish_id, user_id, review, dined_on, stars, user_status) values (?, ?, ?, ?, ?, ?);';
-          db.query(sql, [res[i].id, user, review, dinedOn, stars, userStatus], (error) => {
-            if (error) {
-              console.log(error);
-            }
-          });
+      return;
+    }
+    console.log(`Inserting reviews for ${res.length} dishes`);
+    const reviewsToInsert = [];
+    for (let i = 0; i < res.length; i += 1) {
+      const numOfReviews = Math.floor(Math.random() * (13 - 5) + 5);
+      var uniqueUserId = [];
+      for (let r = 0; r < numOfReviews; r += 1) {
+        var user = faker.random.number({ min: 1, max: 50 });
+        while (uniqueUserId.indexOf(user) !== -1) {
+          user = faker.random.number({ min: 1, max: 50 });
         }
+        uniqueUserId.push(user);
+        const review = faker.lorem.paragraph(Math.floor(Math.random() * (6 - 4) + 4));
+        const dinedOn = faker.date.recent(800);
+        const stars = faker.finance.amount(3.5, 5, 1);
+        const userStatus = faker.random.boolean();
+        reviewsToInsert.push([res[i].id, user, review, dinedOn, stars, userStatus]);
       }
     }
+    const sql = 'insert into reviews (dish_id, user_id, review, dined_on, stars, user_status) values ?;';
+    db.query(sql, [reviewsToInsert], (error) => {
+      if (error) {
+        console.log(error);
+      }
+    });
   });
 };
 
