@@ -29,10 +29,10 @@ const testDish = {
 };
 
 const testUser = {
-  "id": 49,
-  "name": "Winston Durgan",
-  "avatar": "https://avatarstkout.s3-us-west-1.amazonaws.com/48.jpg"
-}
+  id: 49,
+  name: 'Winston Durgan',
+  avatar: 'https://avatarstkout.s3-us-west-1.amazonaws.com/48.jpg',
+};
 
 describe('<App />', () => {
   const wrapper = mount(<App />);
