@@ -32,10 +32,15 @@ const getDishes = (cb) => {
     console.log(`Creating dishes for ${res.length} restaurants`);
     const dishesToInsert = [];
     for (let i = 0; i < res.length; i += 1) {
-      const numOfDishes = Math.floor(Math.random() * (9 - 5) + 5);
+      const idxGenerated = [];
+      const numOfDishes = Math.floor(Math.random() * (12 - 7) + 7);
       for (let dishCount = 0; dishCount < numOfDishes; dishCount += 1) {
-        const dish = faker.random.arrayElement(dishes);
-        dishesToInsert.push([res[i].id, dish.name, dish.ingr, dish.picture]);
+        const randomNum = Math.floor(Math.random() * 50);
+        if (idxGenerated.indexOf(randomNum) === -1) {
+          idxGenerated.push(randomNum);
+          const dish = dishes[randomNum];
+          dishesToInsert.push([res[i].id, dish.name, dish.ingr, dish.picture]);
+        }
       }
     }
     const sql = 'insert into dishes (restr_id, name, ingredients, picture) values ?';
@@ -54,7 +59,7 @@ const getReviews = () => {
         const numOfReviews = Math.floor(Math.random() * (13 - 5) + 5);
         for (let r = 0; r < numOfReviews; r += 1) {
           const user = faker.random.number({ min: 1, max: 50 });
-          const review = faker.lorem.paragraph(Math.floor(Math.random() * (5 - 3) + 3));
+          const review = faker.lorem.paragraph(Math.floor(Math.random() * (6 - 4) + 4));
           const dinedOn = faker.date.recent(800);
           const stars = faker.finance.amount(3.5, 5, 1);
           const userStatus = faker.random.boolean();
