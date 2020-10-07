@@ -14,8 +14,7 @@ const Wrapper = styled.section`
   font-family: Halvetica, sans-serif;
   background-color: #fff;
   width: 678px;
-  height: 220px;
-  margin-left: 20px;
+  height: 400px;
 `;
 
 const Title = styled.h2`
