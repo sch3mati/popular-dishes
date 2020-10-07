@@ -5,21 +5,9 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import Modal from 'react-modal';
 import Review from './Review.jsx';
 import icon from '../icons.jsx';
-
-const Content = styled.div`
-  max-width: 520px;
-  max-height: 700px;
-  height: 70%;
-  position: relative;
-  padding: 2rem;
-  outline: none;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-family: Halvetica, sans-serif;
-`;
 
 const CloseBtn = styled.button`
   position: absolute;
@@ -119,13 +107,19 @@ const DishBtn = styled.button`
 const Popup = ({
   info, closePopup, dishToRender, onContentChange,
 }) => {
+  const [modalIsOpen, setIsOpen] = React.useState(true);
+  const closeModal = () => {
+    setIsOpen(false);
+  };
   const node = useRef();
   const handleOutsideClick = (e) => {
     if (node.current.contains(e.target)) {
       return;
     }
+    closeModal();
     closePopup();
   };
+
   const dishName = (id) => info.dishes[`${id}`].name;
   const UcFirstLetter = (str) => str.charAt(0).toUpperCase() + str.slice(1);
   const user = (id) => info.users[`${id}`];
@@ -142,8 +136,37 @@ const Popup = ({
   }, []);
 
   return (
-    <div ref={node} onClick={handleOutsideClick}>
-      <Content>
+    <Modal
+      className="popupContent"
+      isOpen={modalIsOpen}
+      ariaHideApp={false}
+      style={{
+        overlay: {
+          display: 'flex',
+          backgroundColor: 'rgba(0,0,0,.8)',
+          'align-items': 'center',
+          'justify-content': 'center',
+          position: 'fixed',
+          top: '0',
+          left: '0',
+          right: '0',
+          bottom: '0',
+          'z-index': '200',
+          'background-color': 'rgba(0,0,0,.56)',
+        },
+        content: {
+          'max-width': '520px',
+          'max-height': '700px',
+          padding: '2rem',
+          outline: 'none',
+          background: '#fff',
+          border: '1px solid #ccc',
+          'border-radius': '4px',
+          'font-family': 'Halvetica, sans-serif',
+        },
+      }}
+    >
+      <div ref={node} onClick={handleOutsideClick}>
         <CloseBtn onClick={closePopup}>╳</CloseBtn>
         <div>
           <DishName>{dishName(dishToRender)}</DishName>
@@ -160,8 +183,8 @@ const Popup = ({
             {otherDishesIds.map((id) => <DishBtn onClick={() => onContentChange(id)} key={id}>{UcFirstLetter(dishName(id).split(' ').slice(-1).join(''))}</DishBtn>)}
           </OtherDishes>
         </div>
-      </Content>
-    </div>
+      </div>
+    </Modal>
   );
 };
 
