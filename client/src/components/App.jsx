@@ -70,19 +70,6 @@ const NextBtn = styled(Button)`
   padding-left: 7px;
 `;
 
-const Overlay = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 200;
-  background-color: rgba(0,0,0,.56);
-`;
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -152,7 +139,7 @@ class App extends React.Component {
     const numOfDishes = Object.keys(dishes).length;
     return (
       <div>
-        <div>{popup ? <Overlay><Popup info={this.state.info} dishToRender={this.state.popupDish} closePopup={this.handlePopupClose} onContentChange={this.handlePopupContent} /></Overlay> : null}</div>
+        <div>{popup ? <Popup info={this.state.info} dishToRender={this.state.popupDish} closePopup={this.handlePopupClose} onContentChange={this.handlePopupContent} /> : null}</div>
         <Wrapper>
           <Title>Popular dishes</Title>
           <DishesContainer>

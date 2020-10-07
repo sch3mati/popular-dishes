@@ -21,6 +21,7 @@
     "mysql": "^2.14.1",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
+    "react-modal": "^3.11.2",
     "styled-components": "^5.2.0"
   },
   "devDependencies": {
