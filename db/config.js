@@ -1,6 +1,7 @@
 module.exports = {
-  user: 'student',
-  password: 'student',
+  host: 'mysql',
+  user: 'root',
+  password: 'hrsf130',
   database: 'dishes',
   multipleStatements: true,
 };

@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  app:
+    build: .
+    ports:
+      - "3001:3001"
+    depends_on:
+      - 'mysql'
+    restart: on-failure
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: hrsf130
+      MYSQL_DB: dishes
+    command: sh -c 'node ./server/index.js'
+
+  mysql:
+    ports:
+      - 3306
+    build: ./db
+    environment:
+      MYSQL_ROOT_PASSWORD: hrsf130

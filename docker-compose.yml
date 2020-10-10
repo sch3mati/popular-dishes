@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+  app:
+    image: annkaz/popular-dishes-service_app:latest
+    ports:
+      - 80:3001
+    restart: on-failure
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: hrsf130
+      MYSQL_DB: dishes
+    command: sh -c 'node ./server/index.js'
+
+  mysql:
+    image: annkaz/popular-dishes-service_mysql:latest
+    ports:
+      - 3306
+    environment:
+      MYSQL_ROOT_PASSWORD: hrsf130
