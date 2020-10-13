@@ -13,17 +13,20 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('*.js', (req, res, next) => {
   req.url += '.gz';
-  res.set({ 'Content-Encoding': 'gzip' });
+  res.set({
+    'Content-Encoding': 'gzip',
+    'Content-Type': 'application/javascript',
+  });
   next();
 });
 
 app.use(express.static(path.join(__dirname, '/../client/dist')));
 
-// single api call to get all the data about dishes reviews and users of a particular restaurant
 app.get('/:id', (req, res) => {
   res.sendFile(path.join(__dirname, '/../client/dist/index.html'));
 });
 
+// single api call to get all the data about dishes reviews and users of a particular restaurant
 app.get('/api/dishes/restaurant/:id', (req, res) => {
   const finalResponse = {};
   db.getAllDishes(req.params.id, (err, data) => {
