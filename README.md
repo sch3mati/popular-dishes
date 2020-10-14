@@ -30,10 +30,10 @@ All CRUD operations will operate with the endpoint: ‘/api/restaurants/:restaur
       - Error: 400
 
   - ---------Returns JSON ------------
-    {
+  - {
     "restaurant_id": String,
     "dishes": Array [
-      {
+     - {
         "dish_id": String
         "name": String,
         "mentions": Number,
