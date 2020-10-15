@@ -7,11 +7,10 @@ CREATE DATABASE dishes;
 -- Use
 \c dishes;
 
--- Create restaurant table
 CREATE TABLE IF NOT EXISTS restaurants (
   id BIGSERIAL NOT NULL PRIMARY KEY,
-  name VARCHAR(30) NOT NULL,
-)
+  name VARCHAR(30) NOT NULL
+);
 
 CREATE TABLE IF NOT EXISTS dishes (
   id BIGSERIAL NOT NULL PRIMARY KEY,
@@ -19,13 +18,13 @@ CREATE TABLE IF NOT EXISTS dishes (
   name VARCHAR(30) NOT NULL,
   description VARCHAR(100),
   photo VARCHAR(200)
-)
+);
 
 CREATE TABLE IF NOT EXISTS users (
   id BIGSERIAL NOT NULL PRIMARY KEY,
   username VARCHAR(30) NOT NULL,
   avatar VARCHAR(150)
-)
+);
 
 CREATE TABLE IF NOT EXISTS reviews (
   id BIGSERIAL NOT NULL PRIMARY KEY,
@@ -34,5 +33,5 @@ CREATE TABLE IF NOT EXISTS reviews (
   review TEXT,
   date DATE,
   stars DECIMAL,
-  user_status BOOLEAN
-)
+  vip_status BOOLEAN
+);
