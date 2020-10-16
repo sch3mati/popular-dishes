@@ -9,7 +9,12 @@ CREATE DATABASE dishes;
 
 CREATE TABLE IF NOT EXISTS restaurants (
   id BIGSERIAL NOT NULL PRIMARY KEY,
-  name VARCHAR(30) NOT NULL
+  name VARCHAR(30) NOT NULL,
+  phone VARCHAR(11),
+  email VARCHAR(30),
+  city VARCHAR(30),
+  state VARCHAR(4),
+  zip VARCHAR(15)
 );
 
 CREATE TABLE IF NOT EXISTS dishes (
@@ -24,6 +29,7 @@ CREATE TABLE IF NOT EXISTS users (
   id BIGSERIAL NOT NULL PRIMARY KEY,
   username VARCHAR(30) NOT NULL,
   avatar VARCHAR(150)
+  vip_status BOOLEAN
 );
 
 CREATE TABLE IF NOT EXISTS reviews (
@@ -33,5 +39,4 @@ CREATE TABLE IF NOT EXISTS reviews (
   review TEXT,
   date DATE,
   stars DECIMAL,
-  vip_status BOOLEAN
 );
