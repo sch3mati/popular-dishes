@@ -13,7 +13,7 @@ USE dishes_keyspace
 --  Table Name: Restaurant By Id
 -- One to One relationship. Each restaurany has one column value representing a piece of information data
 CREATE TABLE restaurant_by_id (
-  id: int PRIMARY KEY,
+  id UUID PRIMARY KEY,
   name varchar(30),
   phone varchar(11),
   email varchar(30),
@@ -26,8 +26,8 @@ CREATE TABLE restaurant_by_id (
 -- Table Name: Dishes By Restaurant Id
 -- One to many relationship. each restaurant can have many popular dishes
 CREATE TABLE dishes_by_restaurant_id (
-  id int PRIMARY KEY,
-  restaurant_id int,
+  id UUID PRIMARY KEY,
+  restaurant_id UUID,
   name varchar(30) NOT NULL,
   description varchar(100),
   photo varchar(200)
@@ -40,8 +40,8 @@ CREATE TABLE dishes_by_restaurant_id (
     -- Partition Key: category. The data will be stored on the node category.
     -- Clustering Column: the data for each node will be sorted by id
 CREATE TABLE dishes_by_category (
-  id int,
-  restaurant_id int,
+  id UUID,
+  restaurant_id UUID,
   category varchar(50),
   name varchar(30) NOT NULL,
   description varchar(100),
@@ -53,7 +53,7 @@ CREATE TABLE dishes_by_category (
 -- Table Name: User By Id
 -- One to one relationship. Each user has one one column value for each piece of data representing information of the restraurant
 CREATE TABLE user_by_id (
-  id int PRIMARY KEY,
+  id UUID PRIMARY KEY,
   username varchar(30),
   avatar varchar(150)
   vip_status BOOLEAN
@@ -65,7 +65,7 @@ CREATE TABLE user_by_id (
     -- Partition Key: vip_status, the data will be stored on unique nodes either True or False
     -- Clustering Columns: username and id. The data at each node will be sorted by username then id
 CREATE TABLE user_by_vip_status (
-  id INT,
+  id UUID,
   username VARCHAR(30),
   avatar VARCHAR(150),
   vip_status BOOLEAN,
@@ -76,9 +76,9 @@ CREATE TABLE user_by_vip_status (
 -- Table Name: Review By Id
 -- One to One relationship, each review id will only have one review short paragraph associated with it
 CREATE TABLE review_by_id (
-  id int PRIMARY KEY,
-  user_id INT,
-  dish_id: int,
+  id UUID PRIMARY KEY,
+  user_id UUID,
+  dish_id: UUID,
   review text,
   date DATE,
   stars SMALLINT,
