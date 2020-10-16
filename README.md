@@ -32,6 +32,12 @@ All CRUD operations will operate with the endpoint: ‘/api/restaurants/:restaur
   - ---------Returns JSON ------------
   - {
     "restaurant_id": Number,
+    "name": String,
+    "phone": String,
+    "email": String,
+    "city": String,
+    "state": String,
+    "zip": String,
     "dishes": Array [
      - {
         "dish_id": Number,
