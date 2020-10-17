@@ -1,10 +1,10 @@
 {
   "name": "popular-dishes-service",
   "version": "1.0.0",
-  "description": "TKOut, popular-dishes service module",
+  "description": "sch3mati, popular-dishes service module",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./server/index.js",
+    "start": "nodemon ./server-billy/server.js",
     "build:dev": "webpack -d --watch",
     "build:prod": "webpack -d",
     "seed": "node db/seed.js",
@@ -21,6 +21,7 @@
     "jquery": "^3.2.1",
     "mysql": "^2.14.1",
     "nodemon": "^2.0.4",
+    "pg": "^8.4.1",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-modal": "^3.11.2",

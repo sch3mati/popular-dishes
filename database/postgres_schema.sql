@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS dishes (
 CREATE TABLE IF NOT EXISTS users (
   id BIGSERIAL NOT NULL PRIMARY KEY,
   username VARCHAR(30) NOT NULL,
-  avatar VARCHAR(150)
+  avatar VARCHAR(150),
   vip_status BOOLEAN
 );
 
@@ -38,5 +38,5 @@ CREATE TABLE IF NOT EXISTS reviews (
   dish_id BIGSERIAL REFERENCES dishes(id),
   review TEXT,
   date DATE,
-  stars DECIMAL,
+  stars DECIMAL
 );
