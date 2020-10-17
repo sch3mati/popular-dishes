@@ -1,12 +1,15 @@
-const { Pool } = require('pg');
+/* eslint-disable no-console */
+const { Client } = require('pg');
 
-const pool = new Pool({
+const client = new Client({
   user: 'postgres',
   database: 'dishes',
 });
 
-// const query = (text, params, callback) => pool.query(text, params, callback);
+client.connect()
+  .then(() => console.log('Successful Connection to Postgresql'))
+  .catch((err) => console.error('Error: ', err.stack));
 
 module.exports = {
-  pool,
+  client,
 };
