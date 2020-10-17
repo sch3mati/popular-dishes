@@ -8,7 +8,7 @@ CREATE DATABASE dishes;
 \c dishes;
 
 CREATE TABLE IF NOT EXISTS restaurants (
-  id BIGSERIAL NOT NULL PRIMARY KEY,
+  id SERIAL NOT NULL PRIMARY KEY,
   name VARCHAR(30) NOT NULL,
   phone VARCHAR(11),
   email VARCHAR(30),
@@ -18,24 +18,24 @@ CREATE TABLE IF NOT EXISTS restaurants (
 );
 
 CREATE TABLE IF NOT EXISTS dishes (
-  id BIGSERIAL NOT NULL PRIMARY KEY,
-  restaurant_id BIGSERIAL REFERENCES restaurants(id),
+  id SERIAL NOT NULL PRIMARY KEY,
+  restaurant_id SERIAL REFERENCES restaurants(id),
   name VARCHAR(30) NOT NULL,
   description VARCHAR(100),
   photo VARCHAR(200)
 );
 
 CREATE TABLE IF NOT EXISTS users (
-  id BIGSERIAL NOT NULL PRIMARY KEY,
+  id SERIAL NOT NULL PRIMARY KEY,
   username VARCHAR(30) NOT NULL,
   avatar VARCHAR(150),
   vip_status BOOLEAN
 );
 
 CREATE TABLE IF NOT EXISTS reviews (
-  id BIGSERIAL NOT NULL PRIMARY KEY,
-  user_id BIGSERIAL REFERENCES users(id),
-  dish_id BIGSERIAL REFERENCES dishes(id),
+  id SERIAL NOT NULL PRIMARY KEY,
+  user_id SERIAL REFERENCES users(id),
+  dish_id SERIAL REFERENCES dishes(id),
   review TEXT,
   date DATE,
   stars DECIMAL
