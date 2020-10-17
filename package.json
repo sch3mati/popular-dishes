@@ -11,7 +11,7 @@
     "test": "jest --verbose",
     "test:coverage": "jest --verbose --coverage"
   },
-  "author": "Anna Kazannik",
+  "author": "Billy Maguire",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
