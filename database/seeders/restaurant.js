@@ -3,24 +3,16 @@ const createCsvWriter = require('csv-writer').createObjectCsvWriter;
 
 const csvWriter = createCsvWriter({
   path: 'file.csv',
-  header: [
-    { id: 'Number', name},
-    { id: 'lang', title: 'LANGUAGE' },
-  ],
+  header: ['restaurant_id', 'name', 'phone', 'email', 'city', 'state', 'zip'],
 });
 
 const records = [
-  { name: 'Bob', lang: 'French, English' },
-  { name: 'Mary', lang: 'English' },
+  {
+    restaurant_id: '1234', name: 'Julienne Tomatoes', phone: '555-834-1222', email: 'jt@google.com', city: 'Petoskey', state: 'MI', zip: '49770',
+  },
 ];
 
 csvWriter.writeRecords(records) // returns a promise
   .then(() => {
     console.log('...Done');
   });
-
-// This will produce a file path/to/file.csv with following contents:
-//
-//   NAME,LANGUAGE
-//   Bob,"French, English"
-//   Mary,English
