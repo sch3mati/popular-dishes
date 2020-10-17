@@ -10,8 +10,8 @@ CREATE DATABASE dishes;
 CREATE TABLE IF NOT EXISTS restaurants (
   restaurant_id SERIAL NOT NULL PRIMARY KEY,
   name VARCHAR(30) NOT NULL,
-  phone VARCHAR(11),
-  email VARCHAR(30),
+  phone VARCHAR(12),
+  email VARCHAR(50),
   city VARCHAR(30),
   state VARCHAR(4),
   zip VARCHAR(15)
@@ -19,14 +19,14 @@ CREATE TABLE IF NOT EXISTS restaurants (
 
 CREATE TABLE IF NOT EXISTS dishes (
   dish_id SERIAL NOT NULL PRIMARY KEY,
-  restaurant_id SERIAL REFERENCES restaurants(id),
+  restaurant_id SERIAL REFERENCES restaurants(restaurant_id),
   name VARCHAR(30) NOT NULL,
   description VARCHAR(100),
   photo VARCHAR(200)
 );
 
 CREATE TABLE IF NOT EXISTS users (
-  users_id SERIAL NOT NULL PRIMARY KEY,
+  user_id SERIAL NOT NULL PRIMARY KEY,
   username VARCHAR(30) NOT NULL,
   avatar VARCHAR(150),
   vip_status BOOLEAN
@@ -34,9 +34,11 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS reviews (
   review_id SERIAL NOT NULL PRIMARY KEY,
-  user_id SERIAL REFERENCES users(id),
-  dish_id SERIAL REFERENCES dishes(id),
+  user_id SERIAL REFERENCES users(user_id),
+  dish_id SERIAL REFERENCES dishes(dish_id),
   review TEXT,
   date DATE,
   stars DECIMAL
 );
+
+COPY restaurants(restaurant_id, name, phone, email, city, state, zip) FROM '/Users/billysmac/Documents/Hack_Reactor/SEI/SDC/popular-dishes-service/database/data-storage/restaurants.csv' CSV header;

@@ -1,8 +1,19 @@
 /* eslint-disable no-console */
-const fs = require('fs');
 const faker = require('faker');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
-const db = require('../index.js');
+
+// Helpers ------------------------------------------
+const generateRestaurantName = () => {
+  const suffixArray = ['Place', 'Joint', 'Grill', 'Parlor', 'Steakhouse', 'Burgers', 'Deli',
+    'Comfort House', 'Vegan', 'Sweets', 'Escape', 'Kitchen'];
+  return faker.name.firstName() + faker.random.arrayElement(suffixArray);
+};
+
+const generatePhoneNumber = () => faker.phone.phoneNumberFormat();
+const generateRandomEmail = () => faker.internet.email();
+const generateRandomCity = () => faker.address.city();
+const generateRandomState = () => faker.address.stateAbbr();
+const generateRandomZip = () => faker.address.zipCode();
 
 const csvWriter = createCsvWriter({
   path: './database/data-storage/restaurants.csv',
@@ -18,21 +29,28 @@ const csvWriter = createCsvWriter({
 });
 
 const recordsGenerator = (start, end) => {
-  let result = [];
-  for (var i = start; i <= end; i += 1) {
-    let restaurant = {};
-    restaurant.restaurant
+  const result = [];
+  for (let i = start; i <= end; i += 1) {
+    if (i === 50 || i === 100 || i === 150) {
+      console.log(`Successfully seeded up to ${i} records.`);
+    }
+    const restaurant = {
+      restaurant_id: i,
+      name: generateRestaurantName(),
+      phone: generatePhoneNumber(),
+      email: generateRandomEmail(),
+      city: generateRandomCity(),
+      state: generateRandomState(),
+      zip: generateRandomZip(),
+    };
+    result.push(restaurant);
   }
+  return result;
 };
 
-// Helper Functions
+const restaurantRecordsBuilder = recordsGenerator(1, 200);
 
-// Write Seeder Function Here
-const seed = () => {
-
-};
-
-csvWriter.writeRecords(records) // returns a promise
+csvWriter.writeRecords(restaurantRecordsBuilder) // returns a promise
   .then(() => {
-    console.log('...Done');
+    console.log('Done Seeding.');
   });

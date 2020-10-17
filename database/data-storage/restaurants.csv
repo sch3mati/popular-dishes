@@ -1,0 +1,201 @@
+restaurant_id,name,phone,email,city,state,zip
+1,RetaSteakhouse,947-571-2265,Albertha.Little57@gmail.com,North Brennaport,ND,53831-8820
+2,ThoraPlace,443-440-4964,Hudson94@hotmail.com,Leraview,FL,82127-2859
+3,CaliBurgers,839-494-2077,Darrell_Ferry82@gmail.com,Floridatown,WA,76861-9658
+4,ZackeryEscape,622-437-7561,Kiera_Collier19@hotmail.com,Abbottstad,NM,34093
+5,OleBurgers,426-269-6170,Dominique_McClure77@hotmail.com,Mrazside,MS,82231
+6,DarioPlace,967-679-6686,Armando21@gmail.com,North Javonte,MT,45449
+7,OswaldVegan,836-654-5649,Melvin_Witting@hotmail.com,Kiehnside,DE,98142-8853
+8,DavidPlace,428-524-1953,Kevin.Kulas68@yahoo.com,Millsfurt,AK,14251-3908
+9,VerlieDeli,903-744-5770,Frank4@gmail.com,Brainstad,WA,65153-2649
+10,ElenorPlace,602-921-7064,Sandrine5@hotmail.com,North Glennie,CA,29381
+11,BellSteakhouse,549-235-4487,Jaylon65@gmail.com,Tylerbury,WV,77475-0459
+12,BentonParlor,600-329-9416,Ethel45@gmail.com,Andersonstad,VT,37860-2246
+13,LennaParlor,304-697-5690,Althea.Anderson66@gmail.com,Balistreriport,WY,42720-1331
+14,EuniceVegan,987-431-0326,Gail.Lehner49@yahoo.com,Hillardfort,KY,25201
+15,BrianaJoint,856-299-3078,Jaclyn.Spinka@gmail.com,South Jairobury,NV,68427
+16,RachelleKitchen,828-504-1508,Sarina_Brekke9@hotmail.com,Ziemannburgh,IL,24904
+17,SigmundBurgers,916-925-9458,Brayan77@hotmail.com,South Llewellynberg,NV,66538-5920
+18,CynthiaEscape,429-386-9920,Astrid15@gmail.com,East Treyburgh,NM,74703-0298
+19,EliseKitchen,503-269-6642,Gonzalo.Mann@gmail.com,Ethanbury,TX,04545-5948
+20,LorenzaJoint,494-652-5735,Jenifer71@hotmail.com,Joanieshire,DE,90080-7759
+21,CleoraJoint,354-206-9408,Ethelyn.Schmitt@yahoo.com,East Odellfort,HI,12071-2862
+22,ElainaEscape,887-672-3289,Branson_Goodwin@hotmail.com,East Domenicafurt,NM,19465-8613
+23,TamiaGrill,841-952-2144,Dwight.Marquardt55@yahoo.com,Lake Chesleyshire,PA,77483
+24,JolieBurgers,317-302-7691,Dejon.Von@hotmail.com,New Robyn,ID,89701-8148
+25,MeredithBurgers,228-255-6879,Loren_Treutel15@yahoo.com,North Rosalee,WA,54802-5313
+26,TrentDeli,606-516-1215,Omari_Cassin66@hotmail.com,New Missouri,ID,56676-3433
+27,AlfordSweets,579-451-3303,Charlene_Legros15@yahoo.com,West Kayli,VT,94808
+28,OceaneGrill,268-963-7434,Sigrid88@hotmail.com,Germainestad,TN,06191-1316
+29,AdelbertDeli,513-405-6137,Jacinthe_Waters@hotmail.com,Port Collinhaven,MO,89041-6333
+30,ForestKitchen,810-333-0549,Kareem_Murray66@yahoo.com,Port Rusty,MN,19246
+31,AliaJoint,557-478-0910,Aubree_Cruickshank72@hotmail.com,Naomiebury,OK,30117
+32,LillianJoint,529-237-5023,Marques_Stoltenberg@hotmail.com,Simonisview,NE,94360
+33,NettieJoint,482-330-3400,Wilton.Zieme@hotmail.com,Murraychester,AK,13192
+34,LauriannePlace,536-523-9907,Adan18@hotmail.com,Lake Andre,CT,53024
+35,DorrisPlace,805-914-7784,Joel_Ebert40@gmail.com,Kaiaville,AL,83148
+36,EliasVegan,865-567-2103,Vinnie.Kiehn70@hotmail.com,Willowside,SC,86938
+37,TristinEscape,684-775-4528,Lorenza79@gmail.com,West Conorburgh,GA,70719-7409
+38,IvahGrill,419-637-9922,Johnathan_Cruickshank@hotmail.com,West Jaeden,KY,94346
+39,MercedesComfort House,597-318-9318,Santiago_Gutkowski@gmail.com,Miraclehaven,WI,06097-6403
+40,KatlynnKitchen,708-311-5206,Crystel38@yahoo.com,Weissnatmouth,TN,46606
+41,JazminDeli,213-560-4784,Ernestina.Nitzsche49@gmail.com,Armstrongbury,HI,04578
+42,IvoryComfort House,310-792-2321,Mitchell.Roob@yahoo.com,Gusikowskistad,MA,36369-9331
+43,KaneDeli,950-459-9962,Xzavier.Zieme70@hotmail.com,Gerlachport,NJ,25984
+44,EdaEscape,738-540-2388,Anjali_Kreiger80@yahoo.com,Nikolausbury,MA,52956
+45,MontePlace,275-768-9111,Margarete88@gmail.com,New Kurtis,IL,57533-4680
+46,KurtPlace,957-587-1182,Wyatt.Wisoky@hotmail.com,Lemketown,NH,00964
+47,RowenaJoint,911-411-2207,Grace_Hudson79@hotmail.com,West Vernice,GA,26050
+48,CaliKitchen,437-365-8227,Shyanne_Hudson@yahoo.com,Felipaville,HI,31667
+49,TimothyJoint,229-412-6472,Maryse_Hettinger67@yahoo.com,New Gunnar,NJ,78776
+50,ScotEscape,746-738-3346,Cheyanne_Krajcik95@hotmail.com,Erdmanshire,ND,17656-6070
+51,ZariaComfort House,909-314-9935,Cordell_Stokes27@gmail.com,Lake Raoul,AZ,15493-3543
+52,HarmonGrill,911-511-8826,Darrick_McClure@yahoo.com,West Elenor,WV,68024-0816
+53,RitaEscape,670-492-2953,Norene_Wintheiser@gmail.com,East Ivahside,IN,64021-5864
+54,AdeliaParlor,823-448-9688,Jewel.Kassulke@yahoo.com,Lake Carley,KS,38086
+55,OdessaGrill,954-540-6646,Sedrick.Jaskolski81@hotmail.com,Port Jadaberg,KY,09645
+56,CeciliaJoint,672-694-3567,Hilario_Johnson@yahoo.com,New Aurelio,ME,61287
+57,OranBurgers,631-774-0041,Joy29@yahoo.com,Schmelerborough,CO,18292
+58,TreSteakhouse,785-605-2345,Zackery.Dare@hotmail.com,Lake Kaydenfort,RI,51222-6312
+59,EunicePlace,495-875-2177,Amina.Von50@yahoo.com,South Nathanmouth,GA,04140
+60,CadeDeli,382-439-2748,Marilou.Jast@yahoo.com,Leschton,WY,58222
+61,JustenKitchen,680-874-8638,Willie_Torp79@gmail.com,Svenland,IL,55647-2857
+62,EliseKitchen,215-542-6442,Kieran87@yahoo.com,South Freddie,PA,84310
+63,RussellSweets,304-841-9897,Lowell_Murazik84@yahoo.com,East Lew,NC,06646
+64,LinnieDeli,695-548-7482,Holden53@gmail.com,East Lulafort,OR,59013-5078
+65,KatrinePlace,808-483-3676,Bud_Bauch67@hotmail.com,Port Kathrynberg,NV,00177-4449
+66,CarolKitchen,884-296-3340,Aubree.Bechtelar@hotmail.com,South Orie,SD,41140-2038
+67,ArtSweets,285-608-1885,Moises.Sanford@hotmail.com,Purdytown,NM,47255-3761
+68,PrudenceBurgers,965-467-8644,Jenifer15@hotmail.com,West Marianetown,ND,98826
+69,MonroeDeli,613-777-7581,Jarod_Schaefer49@gmail.com,Carolannechester,CA,70816-8576
+70,GabriellaSteakhouse,627-538-7573,Kathlyn.Mertz29@hotmail.com,Port Nolanchester,PA,02200
+71,KaylaGrill,266-540-0277,Stefan27@gmail.com,Colemouth,TX,71717
+72,KristopherGrill,858-659-3442,Edwin.Ruecker@hotmail.com,Jayneshire,MO,08711-7933
+73,ScotDeli,355-446-3071,Warren9@gmail.com,North Olaf,GA,33206
+74,ObiePlace,237-664-0025,Vena.Schowalter@hotmail.com,East Jamarhaven,FL,89562-7260
+75,ArmandoPlace,664-587-1854,Raheem.Steuber96@gmail.com,Gertrudefurt,MA,07442-3251
+76,MagaliComfort House,382-901-4748,Adelia.Bednar@gmail.com,Murazikton,AK,13223
+77,JulieSteakhouse,773-315-9437,Saul.Breitenberg@hotmail.com,Imeldaport,KS,84279
+78,LillianaComfort House,316-480-1866,Keshawn60@yahoo.com,North Zakary,CT,85378
+79,HassanSteakhouse,953-957-6718,Kendall.Schneider@yahoo.com,Pfannerstillmouth,TN,66721
+80,DeltaComfort House,674-864-5178,Dolores_Lemke58@hotmail.com,Langworthburgh,RI,43926
+81,AbdielPlace,646-926-4780,Lance_Corwin@gmail.com,West Geoffrey,MN,14838-3109
+82,EricVegan,822-938-7085,Carleton_Parisian@gmail.com,Scarlettburgh,NM,15251-5327
+83,AlexanderDeli,805-798-3075,Lewis26@yahoo.com,Natchester,AK,63342-9204
+84,HallieJoint,792-778-7933,Eugenia33@gmail.com,Tyrelberg,AZ,79350-5532
+85,DiamondKitchen,712-887-7794,Ryder_Keeling80@yahoo.com,Dominiqueland,NM,81177
+86,SoniaParlor,348-386-8179,Claudie32@hotmail.com,Brekketon,AL,17093
+87,JesseDeli,322-905-2557,Jonas_McGlynn42@gmail.com,South Elza,OR,98120
+88,DaltonSweets,291-700-5402,Marilou.Feest@gmail.com,Rippinview,OH,21864-8406
+89,AustinPlace,444-972-2755,Donald_Hintz29@gmail.com,Lake Augustine,NH,38028
+90,ClaraGrill,379-918-5236,Trinity.Schneider@yahoo.com,Ninahaven,SD,62217-4447
+91,CreolaVegan,379-271-0273,Sage25@yahoo.com,East Candace,ND,89000-6475
+92,LisandroGrill,215-509-9134,Keira72@hotmail.com,Albinahaven,AK,22439-5474
+93,GracielaComfort House,660-952-6579,Ahmed_Heidenreich@gmail.com,East Haskellchester,MA,47631
+94,TonyParlor,602-234-2633,Marlon.Veum57@gmail.com,Port Freemanmouth,IL,69433
+95,DorisVegan,294-991-9399,Theodore.Hodkiewicz75@gmail.com,Abernathyton,VA,75228
+96,RoxanneComfort House,704-769-6372,Marlon76@yahoo.com,New Jeffereymouth,NC,16539-2515
+97,DellKitchen,518-312-0332,Nelle83@yahoo.com,Gleasonchester,MT,34849
+98,BlairKitchen,508-213-3234,Wilfred53@gmail.com,North Guadalupe,TX,24357
+99,DamionDeli,503-583-9712,Armando.Bauch@yahoo.com,East Shadshire,IL,12641
+100,FreemanGrill,941-539-7277,Gina.Turner@hotmail.com,Port Hudson,AZ,65687-1208
+101,DomenickGrill,537-881-7427,Zena.Reynolds@hotmail.com,Amiemouth,NY,05877-4836
+102,TaylorSweets,297-372-1792,Kendra_Cormier47@gmail.com,New Mariahchester,NM,94467
+103,OttilieKitchen,521-295-7444,Kayli80@yahoo.com,Turnerchester,CO,42213-1029
+104,MazieComfort House,411-626-8516,Elenora.Stracke98@yahoo.com,Simonisfort,AZ,91837
+105,MaiyaEscape,425-484-3497,Rosemary.Padberg@yahoo.com,Brekkehaven,NM,36888-5075
+106,LelaBurgers,821-273-3288,Karen.Macejkovic@gmail.com,Turnerside,NV,89025-7463
+107,JoanieEscape,809-594-5890,Vidal_Koss@hotmail.com,Port Dannieland,PA,11032
+108,LeonelSweets,996-984-5429,Cornell.Murazik@gmail.com,Port Jarrell,TX,39300-1147
+109,VivaBurgers,369-777-8933,Betty.Schowalter@gmail.com,East Keatonfurt,HI,89797-7914
+110,RaySweets,990-661-3494,Kennedi_DAmore14@yahoo.com,West Reece,NV,89493-4922
+111,KenyattaEscape,397-292-5965,Edmond_Maggio10@yahoo.com,New Pierre,TX,72176-7249
+112,LoganBurgers,634-379-1501,Rhett34@gmail.com,North Mackenzie,ID,17551-7181
+113,EleanoraEscape,398-511-5681,Alene.Champlin12@gmail.com,Allanton,RI,24090-3155
+114,OrlandoGrill,442-587-5787,Adrian_Schuppe@gmail.com,Wadeside,TX,16037-5736
+115,AmiraComfort House,505-699-2695,Ellsworth_Zboncak32@hotmail.com,Creminfurt,OR,44965-6115
+116,ElnaJoint,500-777-6100,Maeve_Runolfsson@hotmail.com,Isabellaview,PA,70044-5770
+117,RickyGrill,945-886-2131,Brionna.Frami76@yahoo.com,Lake Jadenbury,TX,72340
+118,JudyDeli,614-829-3561,Edgardo.Okuneva3@gmail.com,O'Connellbury,NM,21890-4204
+119,GraysonVegan,605-478-1428,Shaun_Grady75@yahoo.com,West Lou,SD,75244
+120,RocioBurgers,202-523-4653,Amy8@yahoo.com,Mullertown,MT,30452
+121,RoyalBurgers,922-495-5844,Kraig99@hotmail.com,Port Aracelistad,IL,96436
+122,ClairJoint,987-902-5082,Vilma12@hotmail.com,East Eula,SD,06820
+123,CarlosParlor,989-355-6558,Gerda10@hotmail.com,Vellahaven,AL,93307-9196
+124,GeraldDeli,384-244-8344,Laurence_Ryan63@hotmail.com,Port Garrick,AL,29662
+125,SashaVegan,917-660-9354,Opal.Nitzsche@yahoo.com,Taliachester,NC,59916
+126,BrisaJoint,464-454-5111,Camren_Boyle@yahoo.com,Feilstad,NM,22319
+127,AdellBurgers,657-763-3889,Imogene11@hotmail.com,South Aron,DE,71484-3261
+128,CharlotteGrill,337-348-0338,Laurie_Turner23@yahoo.com,Kleinville,ME,79959
+129,MadelineJoint,804-613-2180,Oswald.Howe14@hotmail.com,Mayertfort,WI,75349
+130,JerrellPlace,979-691-8930,Rico.Graham@yahoo.com,Bradtketown,CO,45221-5396
+131,RebaSweets,670-735-9804,Rodrick_Stoltenberg@hotmail.com,Krismouth,AZ,21237
+132,PatsyParlor,776-940-9395,Matilde_Jerde62@hotmail.com,New Elwyn,NJ,11887
+133,ElsaPlace,541-722-4700,Vinnie_Konopelski76@hotmail.com,Port Justenside,MT,21351
+134,LibbieSteakhouse,757-372-1607,Delaney.Kuphal71@yahoo.com,Javonside,MS,45866
+135,AlexzanderVegan,692-988-2825,Elmer_Gerlach@hotmail.com,Oranborough,NH,74297-7169
+136,JaclynEscape,204-877-8922,Jackeline98@gmail.com,Port Hymanmouth,ID,16598
+137,RaymundoDeli,937-200-9894,Mona_Jakubowski@gmail.com,North Felton,MS,98748
+138,TomasComfort House,605-556-1996,Hailey.Quitzon@gmail.com,Ilastad,MN,20600
+139,VeldaVegan,366-905-2139,Maurice_Blanda@gmail.com,Amparoside,AZ,33079
+140,CordeliaDeli,381-688-0805,Lottie87@gmail.com,West Izabella,CO,68944
+141,AngelaComfort House,874-701-6939,Mabelle_White@hotmail.com,Nolanhaven,WI,26970-3025
+142,GarrisonGrill,797-449-5986,Giuseppe_Ledner@yahoo.com,Schmidttown,GA,19026-3970
+143,WinstonParlor,447-250-0981,Nick_Wisoky@hotmail.com,Rheaburgh,RI,73741-1288
+144,JewelComfort House,343-423-9233,Camila.Powlowski@yahoo.com,Port Cordellland,CA,58640-1548
+145,TalonKitchen,742-393-7484,Jeanette_Jacobi@gmail.com,North Libbyfurt,MO,34904-8434
+146,SimParlor,987-904-3337,Marco.Pagac@yahoo.com,West Vincenzo,FL,94649-0762
+147,LennaParlor,261-966-1458,Aglae31@hotmail.com,South Micah,MS,39354-9443
+148,ShyanneDeli,251-376-9050,Loyce33@yahoo.com,Wittingmouth,AZ,18777-3188
+149,RettaPlace,984-407-9165,Damian89@gmail.com,West Rowland,PA,46580-8412
+150,TheodoraJoint,299-325-3993,Pearl_Mante@gmail.com,East Jimmie,NE,23920-2590
+151,LoraineKitchen,981-675-2402,Edwina_Emard98@yahoo.com,Erwinview,ME,83089
+152,LunaSweets,958-998-5383,Emelie20@hotmail.com,Boganborough,MI,38784-9757
+153,ClaudiaComfort House,868-204-4546,Kristy.Haag@yahoo.com,West Telly,ID,93926
+154,MiguelSweets,473-767-2854,Deonte97@yahoo.com,Lake Connie,HI,37825
+155,KianDeli,386-720-6301,Theresa.Bogan59@hotmail.com,Remingtonside,IL,31954
+156,AbigailGrill,427-343-5480,Arvilla83@gmail.com,Santinamouth,MS,33819-4521
+157,CaitlynParlor,971-721-5301,Eusebio_Sanford90@yahoo.com,Bernierborough,MS,46867-9776
+158,ObieBurgers,737-802-0826,Joshuah98@gmail.com,Violastad,AL,78147-4980
+159,MadilynSweets,842-315-5979,Alfredo12@gmail.com,South Theodore,PA,86938-6132
+160,OzellaDeli,969-390-1194,Lucie_Mayer@gmail.com,Rosannaland,LA,22502
+161,MaribelJoint,698-800-7552,Lonnie_Daniel@hotmail.com,Isomstad,WA,33809
+162,EuniceSweets,497-200-3099,Giles7@yahoo.com,Fisherland,MI,58973
+163,VladimirDeli,651-481-2393,Margret_Klocko97@hotmail.com,South Abbie,SC,10139
+164,StephaniaGrill,840-487-8641,Maria72@gmail.com,Jameyshire,RI,66788-5813
+165,TiaPlace,784-766-3032,Roma4@hotmail.com,Kundeland,NM,47594-7071
+166,AdellaVegan,420-364-7735,Amie_Walker63@hotmail.com,Kentonhaven,VA,72612
+167,ScarlettBurgers,432-679-1850,Mauricio_Considine@hotmail.com,Litzyview,IA,51383-7652
+168,CassieBurgers,571-529-1562,Waino_Sawayn@yahoo.com,Lake Alexandrea,LA,11874
+169,ElianeJoint,711-242-0267,Janice.Muller@gmail.com,Lake Gusberg,WI,81901-7902
+170,QueenieComfort House,656-954-7455,Bartholome2@hotmail.com,Eulaliahaven,SD,22347-4428
+171,ZulaBurgers,546-609-8755,Vallie_McClure57@hotmail.com,Walterview,NM,18990-4250
+172,EmmieComfort House,810-790-4805,Lauren.Armstrong@gmail.com,Port Verlie,IL,06853-1215
+173,DorisJoint,349-649-1261,Americo_Lockman@gmail.com,Claireberg,WY,87676-0842
+174,GladyceKitchen,931-910-8397,Bettye_Goldner6@gmail.com,North Aida,FL,94772-8942
+175,JanickSteakhouse,632-574-9440,Lenna_Breitenberg@gmail.com,Marisaside,SD,00837
+176,GuillermoDeli,889-734-3467,Kendrick_Kunde29@yahoo.com,East Johnson,AR,93118
+177,CrystelPlace,210-500-2732,Blanca42@hotmail.com,South Gretchenshire,OH,42085-1959
+178,KurtKitchen,518-470-4576,Armani.Williamson@yahoo.com,Lake Gina,MS,43116
+179,JimmieBurgers,693-597-1773,Kenya_Wilkinson44@yahoo.com,East Carloside,ME,00411-7971
+180,WaldoComfort House,557-553-7964,Ayla.Koch66@hotmail.com,Bruentown,IN,55051
+181,PietroJoint,737-889-8977,Elwin.Bayer90@gmail.com,West Claudie,ND,94172
+182,AlanisKitchen,549-855-6253,Hipolito65@gmail.com,Nicolashaven,NH,40457
+183,JosefinaParlor,424-642-8400,Pablo_Hauck62@gmail.com,New Lacymouth,NJ,55523
+184,DonnieJoint,653-636-1830,Ernie_Pacocha17@gmail.com,Aldenfort,NE,85273-1803
+185,PatKitchen,927-821-7801,Penelope67@hotmail.com,Bahringerstad,WY,14197
+186,AnnettaKitchen,939-743-3514,Cathrine38@yahoo.com,Bernhardmouth,CT,75778
+187,AlessiaEscape,387-856-8097,Jamir_Collier63@hotmail.com,Port Katharinaview,PA,16995-3640
+188,FlorineParlor,911-894-2773,Shanon16@yahoo.com,Gusikowskiton,MT,46703-8908
+189,JanickJoint,650-787-7361,Roy.Goyette39@yahoo.com,Wileybury,UT,68145
+190,EbonyKitchen,795-322-4458,Rae_Green94@yahoo.com,New Gladyceton,HI,10895-9570
+191,KirstenComfort House,610-831-8835,Vita.Fisher@hotmail.com,Bartonton,AZ,05418-7801
+192,KristopherPlace,863-251-3377,April.Leuschke@gmail.com,Kleinfurt,AZ,45391-9063
+193,AlvinaSteakhouse,864-485-2772,Sammie_Moore@gmail.com,Port Lucasbury,TN,83946
+194,JakobGrill,953-542-1114,Fletcher_Fritsch@yahoo.com,Katherinechester,MI,85420-9421
+195,AnselSteakhouse,405-203-2830,Christop_Runolfsdottir@hotmail.com,Fritzport,SC,80956-6580
+196,BernardPlace,792-397-3908,Rogers_Gusikowski17@hotmail.com,West Carole,NV,62610-8285
+197,NyasiaComfort House,796-727-0427,Mateo.Little@yahoo.com,Ricardoview,GA,22006-2782
+198,JosefinaBurgers,802-303-7820,Porter_Hayes@gmail.com,South Elbertborough,MO,97997
+199,IleneDeli,338-364-3625,Helene.Hessel@yahoo.com,Lake Jayton,IA,58309
+200,JosefaComfort House,538-940-3291,Lora.Swaniawski@gmail.com,Port Winifred,IL,62386-8395
