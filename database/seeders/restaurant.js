@@ -1,16 +1,36 @@
 /* eslint-disable no-console */
+const fs = require('fs');
+const faker = require('faker');
 const createCsvWriter = require('csv-writer').createObjectCsvWriter;
+const db = require('../index.js');
 
 const csvWriter = createCsvWriter({
-  path: 'file.csv',
-  header: ['restaurant_id', 'name', 'phone', 'email', 'city', 'state', 'zip'],
+  path: './database/data-storage/restaurants.csv',
+  header: [
+    { id: 'restaurant_id', title: 'restaurant_id' },
+    { id: 'name', title: 'name' },
+    { id: 'phone', title: 'phone' },
+    { id: 'email', title: 'email' },
+    { id: 'city', title: 'city' },
+    { id: 'state', title: 'state' },
+    { id: 'zip', title: 'zip' },
+  ],
 });
 
-const records = [
-  {
-    restaurant_id: '1234', name: 'Julienne Tomatoes', phone: '555-834-1222', email: 'jt@google.com', city: 'Petoskey', state: 'MI', zip: '49770',
-  },
-];
+const recordsGenerator = (start, end) => {
+  let result = [];
+  for (var i = start; i <= end; i += 1) {
+    let restaurant = {};
+    restaurant.restaurant
+  }
+};
+
+// Helper Functions
+
+// Write Seeder Function Here
+const seed = () => {
+
+};
 
 csvWriter.writeRecords(records) // returns a promise
   .then(() => {
