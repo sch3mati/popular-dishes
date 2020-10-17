@@ -42,7 +42,7 @@ All CRUD operations will operate with the endpoint: ‘/api/restaurants/:restaur
      - {
         "dish_id": Number,
         "name": String,
-        "mentions": Number,
+        "category": String,
         "description": String,
         "reviews": Array [
             "user_id": Number,
@@ -69,7 +69,8 @@ All CRUD operations will operate with the endpoint: ‘/api/restaurants/:restaur
   - "dishes": Object. The popular dish to create {
       "dish_id": Number, new popular dish id
       "restaurant_id": Number, represents which restaurant the dish is associated with, same id as restaurant id
-  -   "name": String, name of the dish to add to restaurant
+  -   "name": String, name of the dish to add to restaurant,
+      "cateogry": String, category of the dish
   -   "description": String, describing some details of the dish
   -   "photo": String, a url to the photo associated with the popular dish
     }
@@ -91,6 +92,7 @@ All CRUD operations will operate with the endpoint: ‘/api/restaurants/:restaur
       {
         "dish_id": Number,
         "name": String,
+        "category": String,
         "description": String,
         "photo": String,
       }
@@ -110,7 +112,7 @@ All CRUD operations will operate with the endpoint: ‘/api/restaurants/:restaur
     - Success: 204,
     - Error: 404
 
-  Response Field: Success Status Code
+  Response Field: Success Status Code 204, Error 404
 
 
 -------------------------------------------
