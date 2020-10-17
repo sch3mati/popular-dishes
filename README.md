@@ -65,49 +65,16 @@ All CRUD operations will operate with the endpoint: ‘/api/restaurants/:restaur
       - Error: 401
 
   - --------REQUEST BODY: Expects JSON with the following keys----------
-  - id - Number, the restaurant's unique ID to add a new popular dish within
-  - dishes: Object. The popular dish to create {
-      dish_id: Number, new popular dish id
-      restaurant_id: Number, represents which restaurant the dish is associated with, same id as restaurant id
-  -   name: String, name of the dish to add to restaurant
-  -   description: String, describing some details of the dish
-  -   photo: String, a url to the photo associated with the popular dish
-  -   reviews - Array [
-              review_id: Number, the Review ID associated with the dishes review being created
-              user_id: Number, the User ID associated with the dish's review being created
-              username: String,  Display Name associated with the user's sch3mati account
-              stars: Decimal Number, a star rating scale value representing how much the user enjoyed the dish being posted
-              date: String, date associated with the user and when they consumed the dish
-              review: String, represents what they enjoyed about the dish and why
-              vip_status: Boolean, whether or not the user is a VIP user
-          ]
-  }
+  - "id" - Number, the restaurant's unique ID to add a new popular dish within
+  - "dishes": Object. The popular dish to create {
+      "dish_id": Number, new popular dish id
+      "restaurant_id": Number, represents which restaurant the dish is associated with, same id as restaurant id
+  -   "name": String, name of the dish to add to restaurant
+  -   "description": String, describing some details of the dish
+  -   "photo": String, a url to the photo associated with the popular dish
+    }
 
-  - ---------RESPONSE JSON----------
-  - {
- "id": 35,
-  "dishes": [
-   {
-     dish_id: 7,
-     restaurant_id: 35
-     name: "Chicken Pot Pie",
-     description: "mashed potatoes, broccolini, mint jelly",
-     photo: "http://potpie.com/potpie.png",
-     reviews: [
-       {
-         review_id: 5,
-         user_id: 8,
-         username: "OpenTableDiner",
-         stars: 4.2,
-         date: "November 17, 2019",
-         review: "Love the ambiance, service, lighting, food (of course, fried chicken was superb) and Dimitri manages to   always greet his guests as if they were family,   which is so rare in this town",
-         vip_status: true
-       }
-     ]
-   },
-   {...}
-  ]
-}
+  - ------RESPONSE Field : Success Code 201, or Error 401
 
 > Update a restaurant's popular dish info -----------------------------------------------------------------------------------
   - PATCH /api/restaurants/:restaurantId/dishes/:dishId
@@ -119,28 +86,19 @@ All CRUD operations will operate with the endpoint: ‘/api/restaurants/:restaur
       - Error: 404
 
   - ------REQUEST BODY: Expects JSON with any of the following keys including only the keys to be updated--------
+  leave out reviews
   - {
-    "dishes": [
       {
         "dish_id": Number,
         "name": String,
         "description": String,
         "photo": String,
-        "reviews": Array [
-            "review_id": Number,
-            "user_id": Number,
-            "username": String,
-            "stars": Decimal Number,
-            "date": String(date),
-            "review": String,
-            "vip_status": Boolean
-        ]
       }
-    ]
   }
 
-- -----RESPONSE FIELD ---------
-- The updated popular dish object
+- ---RESPONSE FIELD: Success Code 204, or Error 404
+
+
 
 > Delete / DELETE - delete a popular dish ------------------------------------------------------------------------------------
   - DELETE /api/restaurants/:restaurantId/dishes/:dishId
