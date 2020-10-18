@@ -4,6 +4,8 @@
   "description": "sch3mati, popular-dishes service module",
   "main": "index.js",
   "scripts": {
+    "restaurant-csv": "node --max-old-space-size=8192 database/seeders/restaurant.js",
+    "restaurant-schema": "psql postgres < ./database/schemas/postgres_schema.sql",
     "start": "nodemon ./server-billy/server.js",
     "build:dev": "webpack -d --watch",
     "build:prod": "webpack -d",
@@ -16,6 +18,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.17.2",
+    "csv-write-stream": "^2.0.0",
     "csv-writer": "^1.6.0",
     "express": "^4.15.4",
     "faker": "^5.1.0",
