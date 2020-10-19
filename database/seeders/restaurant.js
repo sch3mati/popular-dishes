@@ -34,7 +34,6 @@ const recordsGenerator = (start, end) => {
       console.log(`Successfully seeded up to ${i} records.`);
     }
     const restaurant = {
-      restaurant_id: i,
       name: generateRestaurantName(),
       phone: generatePhoneNumber(),
       email: generateRandomEmail(),
@@ -51,5 +50,5 @@ const restaurantRecordsBuilder = recordsGenerator(1, 5000000);
 
 csvWriter.writeRecords(restaurantRecordsBuilder) // returns a promise
   .then(() => {
-    console.log('Done Seeding.');
+    console.log('Done Writing Restaurant Records to Csv file.');
   });

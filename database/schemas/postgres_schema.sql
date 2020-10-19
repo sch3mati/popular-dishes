@@ -20,14 +20,14 @@ CREATE TABLE IF NOT EXISTS restaurants (
 CREATE TABLE IF NOT EXISTS dishes (
   dish_id SERIAL NOT NULL PRIMARY KEY,
   restaurant_id SERIAL REFERENCES restaurants(restaurant_id),
-  name VARCHAR(30) NOT NULL,
+  name VARCHAR(100) NOT NULL,
   description VARCHAR(100),
   photo VARCHAR(200)
 );
 
 CREATE TABLE IF NOT EXISTS users (
   user_id SERIAL NOT NULL PRIMARY KEY,
-  username VARCHAR(30) NOT NULL,
+  username VARCHAR(100) NOT NULL,
   avatar VARCHAR(150),
   vip_status BOOLEAN
 );
@@ -42,3 +42,5 @@ CREATE TABLE IF NOT EXISTS reviews (
 );
 
 COPY restaurants(name, phone, email, city, state, zip) FROM '/Users/billysmac/Documents/Hack_Reactor/SEI/SDC/popular-dishes-service/database/data-storage/restaurants_records.csv' CSV header;
+
+COPY dishes(restaurant_id, name, description, photo) FROM '/Users/billysmac/Documents/Hack_Reactor/SEI/SDC/popular-dishes-service/database/data-storage/dishes_records.csv' CSV header;
