@@ -41,4 +41,4 @@ CREATE TABLE IF NOT EXISTS reviews (
   stars DECIMAL
 );
 
-COPY restaurants FROM '/Users/billysmac/Documents/Hack_Reactor/SEI/SDC/popular-dishes-service/database/data-storage/restaurants.csv' CSV header;
+COPY restaurants(name, phone, email, city, state, zip) FROM '/Users/billysmac/Documents/Hack_Reactor/SEI/SDC/popular-dishes-service/database/data-storage/restaurants_records.csv' CSV header;
