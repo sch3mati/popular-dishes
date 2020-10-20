@@ -25,17 +25,13 @@ CREATE TABLE IF NOT EXISTS dishes (
   photo VARCHAR(200)
 );
 
-CREATE TABLE IF NOT EXISTS users (
-  user_id SERIAL NOT NULL PRIMARY KEY,
-  username VARCHAR(100) NOT NULL,
-  avatar VARCHAR(150),
-  vip_status BOOLEAN
-);
-
 CREATE TABLE IF NOT EXISTS reviews (
   review_id SERIAL NOT NULL PRIMARY KEY,
-  user_id SERIAL REFERENCES users(user_id),
   dish_id SERIAL REFERENCES dishes(dish_id),
+  user_id BIGINT,
+  username VARCHAR(100),
+  avatar VARCHAR(255),
+  vip_status BOOLEAN,
   review TEXT,
   date DATE,
   stars DECIMAL
@@ -44,3 +40,10 @@ CREATE TABLE IF NOT EXISTS reviews (
 COPY restaurants(name, phone, email, city, state, zip) FROM '/Users/billysmac/Documents/Hack_Reactor/SEI/SDC/popular-dishes-service/database/data-storage/restaurants_records.csv' CSV header;
 
 COPY dishes(restaurant_id, name, description, photo) FROM '/Users/billysmac/Documents/Hack_Reactor/SEI/SDC/popular-dishes-service/database/data-storage/dishes_records.csv' CSV header;
+
+COPY reviews(dish_id, user_id, username, avatar, vip_status, review, date, stars) FROM '/Users/billysmac/Documents/Hack_Reactor/SEI/SDC/popular-dishes-service/database/data-storage/reviews_records.csv' CSV header;
+COPY reviews(dish_id, user_id, username, avatar, vip_status, review, date, stars) FROM '/Users/billysmac/Documents/Hack_Reactor/SEI/SDC/popular-dishes-service/database/data-storage/reviews2_records.csv' CSV header;
+-- COPY reviews(dish_id, user_id, username, avatar, vip_status, review, date, stars) FROM '/Users/billysmac/Documents/Hack_Reactor/SEI/SDC/popular-dishes-service/database/data-storage/reviews3_records.csv' CSV header;
+-- COPY reviews(dish_id, user_id, username, avatar, vip_status, review, date, stars) FROM '/Users/billysmac/Documents/Hack_Reactor/SEI/SDC/popular-dishes-service/database/data-storage/reviews4_records.csv' CSV header;
+-- COPY reviews(dish_id, user_id, username, avatar, vip_status, review, date, stars) FROM '/Users/billysmac/Documents/Hack_Reactor/SEI/SDC/popular-dishes-service/database/data-storage/reviews5_records.csv' CSV header;
+-- COPY reviews(dish_id, user_id, username, avatar, vip_status, review, date, stars) FROM '/Users/billysmac/Documents/Hack_Reactor/SEI/SDC/popular-dishes-service/database/data-storage/reviews6_records.csv' CSV header;

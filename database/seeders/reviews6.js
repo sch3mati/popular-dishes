@@ -21,21 +21,16 @@ const generateUserId = () => faker.finance.account();
 const generateUsername = () => faker.internet.userName();
 const generateVipStatus = () => faker.random.boolean();
 const generateReview = () => faker.lorem.paragraph();
-const generateDate = () => {
-  const month = 9 + Math.round(Math.random() * 2);
-  const day = Math.round(Math.random() * 30);
-  const year = 2020;
-  return `${year} - ${month} - ${day}`;
-};
+const generateDate = () => faker.date.recent(90);
 const generateStars = () => faker.finance.amount(3.1, 5, 1);
 
 // Seed & write to csv file ------------------------------------------
-const dishCount = 4500000;
+const dishCount = 15000000;
 const reviewsPerDish = 3;
 const dataGen = async () => {
   const reviewsGenerator = async () => {
-    writer.pipe(fs.createWriteStream('./database/data-storage/reviews_records.csv'));
-    for (let whichDish = 1; whichDish <= dishCount; whichDish += 1) {
+    writer.pipe(fs.createWriteStream('./database/data-storage/reviews6_records.csv'));
+    for (let whichDish = 12500001; whichDish <= dishCount; whichDish += 1) {
       if (whichDish % 500000 === 0) {
         console.log(`Seeded 3 reviews for ${whichDish} dishes`);
       }

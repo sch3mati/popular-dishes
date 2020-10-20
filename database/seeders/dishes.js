@@ -1,6 +1,9 @@
 /* eslint-disable no-console */
 const faker = require('faker');
-const createCsvWriter = require('csv-writer').createObjectCsvWriter;
+const fs = require('fs');
+const csvWriter = require('csv-write-stream');
+
+const writer = csvWriter();
 
 // Helpers ------------------------------------------
 
@@ -70,41 +73,26 @@ const generatePhotoUrl = () => {
   return `${url}${randomNum}.jpg`;
 };
 
-const csvWriter = createCsvWriter({
-  path: './database/data-storage/dishes_records.csv',
-  header: [
-    { id: 'restaurant_id', title: 'restaurant_id' },
-    { id: 'name', title: 'name' },
-    { id: 'description', title: 'description' },
-    { id: 'photo', title: 'photo' },
-  ],
-});
-
-const restaurantCount = 500;
-
-const recordsGenerator = (restaurantNum) => {
-  const result = [];
-  for (let whichRestaurant = 1; whichRestaurant <= restaurantNum; whichRestaurant += 1) {
-    // if (whichRestaurant % 500000 === 0) {
-    //   console.log(`Seeded dishes for ${whichRestaurant} restaurants`);
-    // }
-    const dishCount = randomNumInclusive(1, 5);
-    for (let whichDish = 1; whichDish <= dishCount; whichDish += 1) {
+// Seed & write to csv file ------------------------------------------
+const restaurantCount = 3000000;
+const dishesPerRestaurant = 3;
+const dataGen = () => {
+  writer.pipe(fs.createWriteStream('./database/data-storage/dishes_records.csv'));
+  for (let whichRestaurant = 1; whichRestaurant <= restaurantCount; whichRestaurant += 1) {
+    if (whichRestaurant % 500000 === 0) {
+      console.log(`Seeded 3 dishes for ${whichRestaurant} restaurants`);
+    }
+    for (let whichDish = 1; whichDish <= dishesPerRestaurant; whichDish += 1) {
       const dish = {
         restaurant_id: whichRestaurant,
         name: generateDishName(),
         description: generateDescription(),
         photo: generatePhotoUrl(),
       };
-      result.push(dish);
+      writer.write(dish);
     }
   }
-  return result;
+  writer.end();
+  console.log('Writing 3 dish records for 5Mil Restaurants to csv file');
 };
-
-const dishesRecordsBuilder = recordsGenerator(restaurantCount);
-
-csvWriter.writeRecords(dishesRecordsBuilder) // returns a promise
-  .then(() => {
-    console.log('Done Writing Dish records to csv');
-  });
+dataGen();

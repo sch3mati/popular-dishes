@@ -26,6 +26,7 @@ build/
 avatars/
 dishesImg/
 dishesPhotos/
+avatarsPhotos/
 
 # CSV Files
 *.csv

@@ -31,7 +31,7 @@ const recordsGenerator = (start, end) => {
   const result = [];
   for (let i = start; i <= end; i += 1) {
     if (i % 500000 === 0) {
-      console.log(`Successfully seeded up to ${i} records.`);
+      console.log(`Successfully seeded up to ${i} restaurant records.`);
     }
     const restaurant = {
       name: generateRestaurantName(),
@@ -46,7 +46,7 @@ const recordsGenerator = (start, end) => {
   return result;
 };
 
-const restaurantRecordsBuilder = recordsGenerator(1, 5000000);
+const restaurantRecordsBuilder = recordsGenerator(1, 3000000);
 
 csvWriter.writeRecords(restaurantRecordsBuilder) // returns a promise
   .then(() => {
