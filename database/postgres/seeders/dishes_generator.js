@@ -1,9 +1,8 @@
+/* eslint-disable camelcase */
+/* eslint-disable no-plusplus */
 /* eslint-disable no-console */
-const faker = require('faker');
 const fs = require('fs');
-const csvWriter = require('csv-write-stream');
-
-const writer = csvWriter();
+const faker = require('faker');
 
 // Helpers ------------------------------------------
 
@@ -73,26 +72,57 @@ const generatePhotoUrl = () => {
   return `${url}${randomNum}.jpg`;
 };
 
-// Seed & write to csv file ------------------------------------------
-const restaurantCount = 3000000;
-const dishesPerRestaurant = 3;
-const dataGen = () => {
-  writer.pipe(fs.createWriteStream('./database/data-storage/dishes_records.csv'));
-  for (let whichRestaurant = 1; whichRestaurant <= restaurantCount; whichRestaurant += 1) {
-    if (whichRestaurant % 500000 === 0) {
-      console.log(`Seeded 3 dishes for ${whichRestaurant} restaurants`);
-    }
-    for (let whichDish = 1; whichDish <= dishesPerRestaurant; whichDish += 1) {
-      const dish = {
-        restaurant_id: whichRestaurant,
-        name: generateDishName(),
-        description: generateDescription(),
-        photo: generatePhotoUrl(),
-      };
-      writer.write(dish);
+const restaurantsCount = 3000000;
+const dishesPerRestaurant = 4;
+const filename = './database/data-storage/dishes_records.csv';
+const stream = fs.createWriteStream(filename);
+
+const createThreeDishes = (restaurantId) => {
+  let result = '';
+  for (let whichDish = 1; whichDish <= dishesPerRestaurant; whichDish += 1) {
+    const restaurant_id = restaurantId;
+    const name = generateDishName();
+    const description = generateDescription();
+    const photo = generatePhotoUrl();
+    result += `${restaurant_id},${name},${description},${photo}\n`;
+  }
+  return result;
+};
+
+const writeFifteenMillionDishes = (writeStream, encoding, done) => {
+  let i = restaurantsCount;
+  function writing() {
+    let restaurantId = 1;
+    const canWrite = true;
+    do {
+      i--;
+      const dishes = createThreeDishes(restaurantId);
+      if (i % 500000 === 0) {
+        console.log(`Successfully seeded 4 dishes for ${3000000 - i} restaurants`);
+      }
+      if (i === 0) {
+        // we are done, fire callback
+        writeStream.write(dishes, encoding, done);
+      } else {
+        // we are not done so dont fire callback
+        writeStream.write(dishes, encoding);
+        restaurantId++;
+      }
+      // else call write and continue looping
+    } while (i > 0 && canWrite);
+    if (i > 0 && !canWrite) {
+      // our buffer for stream filled and need to wait for drain
+      // Write some more once it drains.
+      writeStream.once('drain', writing);
     }
   }
-  writer.end();
-  console.log('Writing 3 dish records for 5Mil Restaurants to csv file');
+  // initiate our writing function
+  writing();
 };
-dataGen();
+
+// write our `header` line before we invoke the loop
+stream.write('restaurant_id,name,description,photo\n', 'utf-8');
+// invoke writeFiveMillionRestaurants and pass callback
+writeFifteenMillionDishes(stream, 'utf-8', () => {
+  stream.end();
+});
