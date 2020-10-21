@@ -27,10 +27,10 @@ const generateDate = () => {
 };
 const generateStars = () => faker.finance.amount(3.1, 5, 1);
 
-const dishCount = 12000000;
+const dishCount = 8000000;
 const reviewsPerDish = 3;
 
-const filename = './database/data-storage/reviews_records.csv';
+const filename = './database/postgres/data-storage/reviews_records.csv';
 const stream = fs.createWriteStream(filename);
 
 const createThreeReviews = (dishId) => {
@@ -58,7 +58,7 @@ const writeFifteenMillionReviews = (writeStream, encoding, done) => {
       i--;
       const dishes = createThreeReviews(dishId);
       if (i % 500000 === 0) {
-        console.log(`Successfully seeded 3 reviews for ${12000000 - i} dishes`);
+        console.log(`Successfully seeded 3 reviews for ${8000000 - i} dishes`);
       }
       if (i === 0) {
         // we are done, fire callback

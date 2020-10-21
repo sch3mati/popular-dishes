@@ -4,9 +4,9 @@
   "description": "sch3mati, popular-dishes service module",
   "main": "index.js",
   "scripts": {
-    "restaurant-csv": "node --max-old-space-size=8192 database/postgres/seeders/restaurants_ge.js",
-    "dishes-csv": "node --max-old-space-size=8192 database/postgres/seeders/dishes.js",
-    "reviews-csv": "node --max-old-space-size=8192 database/postgres/seeders/reviews.js",
+    "restaurant-csv": "node --max-old-space-size=8192 database/postgres/seeders/restaurants_generator.js",
+    "dishes-csv": "node --max-old-space-size=8192 database/postgres/seeders/dishes_generator.js",
+    "reviews-csv": "node --max-old-space-size=8192 database/postgres/seeders/reviews_generator.js",
     "pg-restaurant-schema": "psql postgres < ./database/postgres/postgres_schema.sql",
     "start": "nodemon ./server-billy/server.js",
     "build:dev": "webpack -d --watch",

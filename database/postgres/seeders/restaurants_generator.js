@@ -3,8 +3,8 @@
 const fs = require('fs');
 const faker = require('faker');
 
-const restaurantsCount = 3000000;
-const filename = './database/data-storage/restaurants_records.csv';
+const restaurantsCount = 2000000;
+const filename = './database/postgres/data-storage/restaurants_records.csv';
 const stream = fs.createWriteStream(filename);
 
 const generateRestaurantName = () => {
@@ -38,7 +38,7 @@ const writeFiveMillionRestaurants = (writeStream, encoding, done) => {
       i--;
       const restaurant = createRestaurant();
       if (i % 500000 === 0) {
-        console.log(`Successfully seeded ${i} restaurants`);
+        console.log(`Successfully seeded ${2000000 - i} restaurants`);
       }
       if (i === 0) {
         // we are done, fire callback

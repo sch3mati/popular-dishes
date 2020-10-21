@@ -72,9 +72,9 @@ const generatePhotoUrl = () => {
   return `${url}${randomNum}.jpg`;
 };
 
-const restaurantsCount = 3000000;
+const restaurantsCount = 2000000;
 const dishesPerRestaurant = 4;
-const filename = './database/data-storage/dishes_records.csv';
+const filename = './database/postgres/data-storage/dishes_records.csv';
 const stream = fs.createWriteStream(filename);
 
 const createThreeDishes = (restaurantId) => {
@@ -98,7 +98,7 @@ const writeFifteenMillionDishes = (writeStream, encoding, done) => {
       i--;
       const dishes = createThreeDishes(restaurantId);
       if (i % 500000 === 0) {
-        console.log(`Successfully seeded 4 dishes for ${3000000 - i} restaurants`);
+        console.log(`Successfully seeded 4 dishes for ${2000000 - i} restaurants`);
       }
       if (i === 0) {
         // we are done, fire callback
