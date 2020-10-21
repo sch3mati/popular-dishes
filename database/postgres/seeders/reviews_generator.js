@@ -49,7 +49,7 @@ const createThreeReviews = (dishId) => {
   return result;
 };
 
-const writeFifteenMillionReviews = (writeStream, encoding, done) => {
+const writeReviews = (writeStream, encoding, done) => {
   let i = dishCount;
   function writing() {
     let dishId = 1;
@@ -82,7 +82,7 @@ const writeFifteenMillionReviews = (writeStream, encoding, done) => {
 
 // write our `header` line before we invoke the loop
 stream.write('dish_id,user_id,username,avatar,vip_status,review,date,stars\n', 'utf-8');
-// invoke writeFifteenMillionReviews and pass callback
-writeFifteenMillionReviews(stream, 'utf-8', () => {
+// invoke writeReviews and pass callback
+writeReviews(stream, 'utf-8', () => {
   stream.end();
 });

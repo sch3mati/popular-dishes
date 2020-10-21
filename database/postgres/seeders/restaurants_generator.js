@@ -30,7 +30,7 @@ const createRestaurant = () => {
   return `${name},${phone},${email},${city},${state},${zip}\n`;
 };
 
-const writeFiveMillionRestaurants = (writeStream, encoding, done) => {
+const writeRestaurants = (writeStream, encoding, done) => {
   let i = restaurantsCount;
   function writing() {
     const canWrite = true;
@@ -61,7 +61,7 @@ const writeFiveMillionRestaurants = (writeStream, encoding, done) => {
 
 // write our `header` line before we invoke the loop
 stream.write('name,phone,email,city,state,zip\n', 'utf-8');
-// invoke writeFiveMillionRestaurants and pass callback
-writeFiveMillionRestaurants(stream, 'utf-8', () => {
+// invoke writeRestaurants and pass callback
+writeRestaurants(stream, 'utf-8', () => {
   stream.end();
 });
