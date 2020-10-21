@@ -32,22 +32,24 @@ const generateStars = () => faker.finance.amount(3.1, 5, 1);
 
 const dishCount = 4000000;
 const reviewsPerDish = 2;
+let reviewCount = 0;
 
-const filename = './database/postgres/data-storage/reviews_records.csv';
+const filename = './database/cassandra/data-storage/reviews_records.csv';
 const stream = fs.createWriteStream(filename);
 
 const createThreeReviews = (dishId) => {
   let result = '';
   for (let whichReview = 1; whichReview <= reviewsPerDish; whichReview += 1) {
-    const dish_id = dishId;
+    const review_id = reviewCount++;
     const user_id = generateUserId();
+    const dish_id = dishId;
     const username = generateUsername();
     const avatar = generateAvatarUrl();
-    const vip_status = generateVipStatus();
     const review = generateReview();
+    const vip_status = generateVipStatus();
     const date = generateDate();
     const stars = generateStars();
-    result += `${dish_id},${user_id},${username},${avatar},${vip_status},${review},${date},${stars}\n`;
+    result += `${review_id},${user_id},${dish_id},${username},${avatar}, ${review},${vip_status},${date},${stars}\n`;
   }
   return result;
 };
@@ -84,7 +86,7 @@ const writeReviews = (writeStream, encoding, done) => {
 };
 
 // write our `header` line before we invoke the loop
-stream.write('dish_id,user_id,username,avatar,vip_status,review,date,stars\n', 'utf-8');
+stream.write('review_id,user_id,dish_id,username,avatar,review,vip_status,date,stars\n', 'utf-8');
 // invoke writeReviews and pass callback
 writeReviews(stream, 'utf-8', () => {
   stream.end();
