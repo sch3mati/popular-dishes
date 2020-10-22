@@ -32,7 +32,7 @@ const generateStars = () => faker.finance.amount(3.1, 5, 1);
 
 const dishCount = 4000000;
 const reviewsPerDish = 2;
-let reviewCount = 0;
+let reviewCount = 1;
 
 const filename = './database/cassandra/data-storage/reviews_records.csv';
 const stream = fs.createWriteStream(filename);
@@ -54,10 +54,10 @@ const createThreeReviews = (dishId) => {
   return result;
 };
 
+let dishId = 1;
 const writeReviews = (writeStream, encoding, done) => {
   let i = dishCount;
   function writing() {
-    let dishId = 1;
     let canWrite = true;
     do {
       i--;
@@ -71,8 +71,8 @@ const writeReviews = (writeStream, encoding, done) => {
       } else {
         // we are not done so dont fire callback
         canWrite = writeStream.write(dishes, encoding);
-        dishId++;
       }
+      dishId++;
       // else call write and continue looping
     } while (i > 0 && canWrite);
     if (i > 0 && !canWrite) {

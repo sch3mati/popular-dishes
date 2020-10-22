@@ -23,8 +23,9 @@ CREATE TABLE dishes_by_restaurant_id (
   description TEXT,
   category TEXT,
   photo TEXT,
-  PRIMARY KEY (category, dish_id)
-);
+  PRIMARY KEY (restaurant_id, category)
+)
+WITH CLUSTERING ORDER BY (category ASC);
 
 CREATE TABLE review_by_dish_id (
   review_id INT,
@@ -36,5 +37,6 @@ CREATE TABLE review_by_dish_id (
   vip_status BOOLEAN,
   date DATE,
   stars DECIMAL,
-  PRIMARY KEY (stars, review_id)
-);
+  PRIMARY KEY (dish_id, date)
+)
+WITH CLUSTERING ORDER BY (date DESC);
