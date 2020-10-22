@@ -52,10 +52,10 @@ const createThreeReviews = (dishId) => {
   return result;
 };
 
+let dishId = 1;
 const writeReviews = (writeStream, encoding, done) => {
   let i = dishCount;
   function writing() {
-    let dishId = 1;
     let canWrite = true;
     do {
       i--;
@@ -69,8 +69,8 @@ const writeReviews = (writeStream, encoding, done) => {
       } else {
         // we are not done so dont fire callback
         canWrite = writeStream.write(dishes, encoding);
-        dishId++;
       }
+      dishId++;
       // else call write and continue looping
     } while (i > 0 && canWrite);
     if (i > 0 && !canWrite) {
