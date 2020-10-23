@@ -26,7 +26,7 @@ const getDishReviews = (dishIds, cb) => {
       cb(err);
       return;
     }
-    cb(null, result);
+    cb(null, result.rows);
   });
 };
 
