@@ -9,7 +9,7 @@ CREATE DATABASE dishes;
 
 CREATE TABLE IF NOT EXISTS restaurants (
   restaurant_id SERIAL NOT NULL PRIMARY KEY,
-  name VARCHAR(30) NOT NULL,
+  restaurant_name VARCHAR(30) NOT NULL,
   phone VARCHAR(12),
   email VARCHAR(50),
   city VARCHAR(30),
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS restaurants (
 CREATE TABLE IF NOT EXISTS dishes (
   dish_id SERIAL NOT NULL PRIMARY KEY,
   restaurant_id SERIAL REFERENCES restaurants(restaurant_id),
-  name VARCHAR(100) NOT NULL,
+  dish_name VARCHAR(100) NOT NULL,
   description VARCHAR(100),
   photo VARCHAR(200)
 );

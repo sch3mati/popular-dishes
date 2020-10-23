@@ -14,18 +14,52 @@ app.use(bodyParser.json());
 
 // Routes-------
 
+// GET restaurant info from restaurant id
+
 // GET all dishes for a restaurant
 app.get('/api/restaurants/:restaurantId/dishes', (req, res) => {
   // console.log('Req Params: ', req.params);
-  db.getDishesFromRestaurant(req.params.restaurantId, (err, dishData) => {
-    console.log('Dish Data in server get request: ', dishData);
+  db.getRestaurantInfo(req.params.restaurantId, (err, restaurantData) => {
+    const finalResponse = restaurantData[0];
+    console.log('Dish Data in server get request: ', restaurantData);
     if (err) {
       res.status(400).send();
     } else {
-      res.status(200).send(dishData);
+      db.getDishesFromRestaurant(req.params.restaurantId, (errDishes, dishData) => {
+        if (errDishes) {
+          res.status(400).send();
+          console.log('Error inside getDishesFromRestaurant');
+        } else {
+          const result = dishData.map((dish) => dish);
+          finalResponse.dishes = result;
+          res.status(200).send(finalResponse);
+        }
+      });
     }
   });
 });
+// app.get('/api/restaurants/:restaurantId/dishes', (req, res) => {
+//   // console.log('Req Params: ', req.params);
+//   db.getRestaurantInfo(req.params.restaurantId, (err, restaurantData) => {
+//     console.log('Dish Data in server get request: ', restaurantData);
+//     if (err) {
+//       res.status(400).send();
+//     } else {
+//       res.status(200).send(restaurantData);
+//     }
+//   });
+// });
+// app.get('/api/restaurants/:restaurantId/dishes', (req, res) => {
+//   // console.log('Req Params: ', req.params);
+//   db.getDishesFromRestaurant(req.params.restaurantId, (err, dishData) => {
+//     console.log('Dish Data in server get request: ', dishData);
+//     if (err) {
+//       res.status(400).send();
+//     } else {
+//       res.status(200).send(dishData);
+//     }
+//   });
+// });
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
