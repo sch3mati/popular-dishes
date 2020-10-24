@@ -59,6 +59,8 @@ const dishNames = [
   'Coriander and leek wontons',
 ];
 
+const categories = ['American', 'Pizza', 'Italian', 'Chinese', 'Sushi', 'Homestyle', 'Brunch', 'Dinner', 'Mexican', 'Greek', 'Mediterranean', 'Vegan'];
+
 const generateDescription = () => faker.lorem.sentence(4, 4);
 const randomNumInclusive = (minimum, maximum) => {
   const min = Math.ceil(minimum);
@@ -71,20 +73,24 @@ const generatePhotoUrl = () => {
   const randomNum = randomNumInclusive(1, 900);
   return `${url}${randomNum}.jpg`;
 };
+const generateCategory = () => categories[randomNumInclusive(0, 11)];
 
 const restaurantsCount = 2000000;
 const dishesPerRestaurant = 2;
-const filename = './database/postgres/data-storage/dishes_records.csv';
+let dishCount = 0;
+const filename = './database/cassandra/data-storage/dishes_records.csv';
 const stream = fs.createWriteStream(filename);
 
 const createThreeDishes = (restaurantId) => {
   let result = '';
   for (let whichDish = 1; whichDish <= dishesPerRestaurant; whichDish += 1) {
+    const dish_id = dishCount++;
     const restaurant_id = restaurantId;
     const name = generateDishName();
     const description = generateDescription();
+    const category = generateCategory();
     const photo = generatePhotoUrl();
-    result += `${restaurant_id},${name},${description},${photo}\n`;
+    result += `${dish_id},${restaurant_id},${name},${description},${category},${photo}\n`;
   }
   return result;
 };
@@ -121,7 +127,7 @@ const writeDishes = (writeStream, encoding, done) => {
 };
 
 // write our `header` line before we invoke the loop
-stream.write('restaurant_id,name,description,photo\n', 'utf-8');
+stream.write('dish_id,restaurant_id,name,description,category,photo\n', 'utf-8');
 // invoke writeDishes and pass callback
 writeDishes(stream, 'utf-8', () => {
   stream.end();
