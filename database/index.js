@@ -43,13 +43,17 @@ const getDishesAndReviews = (restaurantId, callback) => {
   });
 };
 
+// `insert into restaurants (seatCapacity, name) values ("${seatCapactiy}", ${name})`
 const addDish = (dish, callback) => {
   const { dish_name, description, photo } = dish;
-  const query = 'INSERT INTO dishes (dish_name, description, photo) VALUES (?, ?, ?)';
-  client.query(query, [dish_name, description, photo], (err, result) => {
-    console.log('made it here');
+  const restaurant_id = Number(dish.restaurant_id);
+  const query = 'INSERT INTO dishes (restaurant_id, dish_name, description, photo) VALUES ($1, $2, $3, $4);';
+  const values = [restaurant_id, dish_name, description, photo];
+  client.query(query, values, (err, result) => {
     if (err) callback(err);
-    callback(null, result);
+    else {
+      callback(null, result);
+    }
   });
 };
 

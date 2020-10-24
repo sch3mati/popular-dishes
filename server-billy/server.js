@@ -44,10 +44,13 @@ app.get('/api/restaurants/:restaurantId/dishes', (req, res) => {
 });
 
 app.post('/api/restaurants/:restaurantId/dishes', (req, res) => {
-  // console.log(req.body);
-  db.addDish(req.body, (err) => {
-    if (err) res.status(401).send();
-    else {
+  const dish = req.body;
+  dish.restaurant_id = req.params.restaurantId;
+  db.addDish(dish, (err) => {
+    if (err) {
+      console.log(err);
+      res.status(401).send();
+    } else {
       res.status(201).send();
     }
   });
