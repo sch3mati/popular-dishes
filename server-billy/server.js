@@ -47,12 +47,8 @@ app.post('/api/restaurants/:restaurantId/dishes', (req, res) => {
   const dish = req.body;
   dish.restaurant_id = req.params.restaurantId;
   db.addDish(dish, (err) => {
-    if (err) {
-      console.log(err);
-      res.status(401).send();
-    } else {
-      res.status(201).send();
-    }
+    if (err) res.status(401).send('Could not insert dish');
+    res.status(201).send(`Successfully added dish to restaurant ${req.params.restaurantId}`);
   });
 });
 
