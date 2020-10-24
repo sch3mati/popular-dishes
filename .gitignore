@@ -27,6 +27,7 @@ avatars/
 dishesImg/
 dishesPhotos/
 avatarsPhotos/
+cassandra/
 
 # CSV Files
 *.csv

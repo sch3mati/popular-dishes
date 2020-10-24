@@ -10,6 +10,17 @@ client.connect()
   .then(() => console.log('Successful Connection to Postgresql'))
   .catch((err) => console.error('Error: ', err.stack));
 
+// Inner Join all three in one Query
+// const getRestaurantInfo = (restaurantId, callback) => {
+//   const query = `SELECT * FROM restaurants INNER JOIN dishes ON
+//    restaurants.restaurant_id = dishes.restaurant_id INNER JOIN reviews
+//    ON dishes.dish_id = reviews.dish_id AND restaurants.restaurant_id = ${restaurantId}`;
+//   client.query(query, (err, result) => {
+//     if (err) callback(err);
+//     else callback(null, result.rows);
+//   });
+// };
+
 const getRestaurantInfo = (restaurantId, callback) => {
   const query = `SELECT * FROM restaurants WHERE restaurant_id = ${restaurantId}`;
   client.query(query, (err, result) => {
@@ -22,44 +33,17 @@ const getRestaurantInfo = (restaurantId, callback) => {
   });
 };
 
-const getDishesFromRestaurant = (restaurantId, callback) => {
-  const query = `SELECT * FROM dishes WHERE restaurant_id = ${restaurantId}`;
+const getDishesAndReviews = (restaurantId, callback) => {
+  const query = `SELECT * FROM dishes
+  JOIN reviews ON dishes.dish_id = reviews.dish_id AND dishes.restaurant_id = ${restaurantId}`;
   client.query(query, (err, result) => {
-    // console.log('Res from getDishesFromRestaurant: ', result.rows);
-    if (err) {
-      callback(err);
-    } else {
-      callback(null, result.rows);
-    }
+    if (err) callback(err);
+    else callback(null, result.rows);
   });
 };
-// const getDishesFromRestaurant = (restaurantId, callback) => {
-//   const query = `SELECT * FROM restaurants
-//   JOIN dishes ON restaurants.restaurant_id = dishes.restaurant_id
-//  AND restaurants.restaurant_id = ${restaurantId}`;
-//   client.query(query, (err, result) => {
-//     console.log('Res from getDishesFromRestaurant: ', result.rows);
-//     if (err) {
-//       callback(err);
-//     } else {
-//       callback(null, result.rows);
-//     }
-//   });
-// };
-// const getDishesFromRestaurant = (restaurantId, callback) => {
-//   const query = `SELECT * FROM dishes WHERE restaurant_id = ${restaurantId}`;
-//   client.query(query, (err, result) => {
-//     console.log('Res from getDishesFromRestaurant: ', result.rows);
-//     if (err) {
-//       callback(err);
-//     } else {
-//       callback(null, result.rows);
-//     }
-//   });
-// };
 
 module.exports = {
   client,
   getRestaurantInfo,
-  getDishesFromRestaurant,
+  getDishesAndReviews,
 };
