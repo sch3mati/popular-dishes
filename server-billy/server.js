@@ -43,6 +43,16 @@ app.get('/api/restaurants/:restaurantId/dishes', (req, res) => {
   });
 });
 
+app.post('/api/restaurants/:restaurantId/dishes', (req, res) => {
+  // console.log(req.body);
+  db.addDish(req.body, (err) => {
+    if (err) res.status(401).send();
+    else {
+      res.status(201).send();
+    }
+  });
+});
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });

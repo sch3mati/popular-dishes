@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-console */
 const { Client } = require('pg');
 
@@ -42,8 +43,19 @@ const getDishesAndReviews = (restaurantId, callback) => {
   });
 };
 
+const addDish = (dish, callback) => {
+  const { dish_name, description, photo } = dish;
+  const query = 'INSERT INTO dishes (dish_name, description, photo) VALUES (?, ?, ?)';
+  client.query(query, [dish_name, description, photo], (err, result) => {
+    console.log('made it here');
+    if (err) callback(err);
+    callback(null, result);
+  });
+};
+
 module.exports = {
   client,
   getRestaurantInfo,
   getDishesAndReviews,
+  addDish,
 };
