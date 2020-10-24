@@ -1,6 +1,7 @@
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable guard-for-in */
 /* eslint-disable no-console */
+const newrelic = require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../database/index');
