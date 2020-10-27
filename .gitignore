@@ -28,7 +28,7 @@ dishesImg/
 dishesPhotos/
 avatarsPhotos/
 cassandra/
-mynewrelic.js
+newrelic.js
 
 # CSV Files
 *.csv
