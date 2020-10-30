@@ -7,9 +7,9 @@ const k6 = require('k6');
 export const options = {
   stages: [
     { duration: '30s', target: 200 },
-    { duration: '1m', target: 500 },
-    { duration: '1m', target: 1000 },
-    { duration: '1m', target: 500 },
+    { duration: '30s', target: 500 },
+    { duration: '30s', target: 1000 },
+    { duration: '30s', target: 500 },
     { duration: '30s', target: 200 },
     // { duration: '30s', target: 1500 },
     // { duration: '2m', target: 1500 },

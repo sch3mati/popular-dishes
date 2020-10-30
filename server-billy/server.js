@@ -16,7 +16,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Routes-------
-
 // GET restaurant info, and dish and review data for particular restaurant id
 // app.get('/api/restaurants/:restaurantId/dishes', (req, res) => {
 //   db.getRestaurantInfo(req.params.restaurantId, (err, restaurantData) => {

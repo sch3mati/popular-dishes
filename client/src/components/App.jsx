@@ -100,7 +100,7 @@ class App extends React.Component {
   }
 
   getAllDishes(restrId) {
-    axios.get(`/api/dishes/restaurant/${restrId}`)
+    axios.get(`/api/restaurants/${restrId}/dishes`)
       .then((result) => {
         this.setState({
           info: result.data,
